@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<p>Hearthdle API</p>a
+<p>Hearthdle API</p>
 
 </body>
 </html>

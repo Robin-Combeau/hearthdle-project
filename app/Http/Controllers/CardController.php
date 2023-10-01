@@ -165,10 +165,7 @@ class CardController extends Controller
         else{
             return 'Card not found';
         }
-        
-
-
-    }
+            }
 
 
     public static function getCardNameCover($id){
@@ -186,12 +183,24 @@ class CardController extends Controller
                 case 39:
                     return 'C:\Users\robin\Documents\Code\hearthdle\images\ribbons\location.png';
                 default:
-                    return 'unknown card type';
+                    return 'Unknown card type';
             }
         }
-        else{
-            return 'Card not found';
-        }
-        
+        return 'Card not found';
+    }
+
+    public static function getCard($id){
+        $card = Card::findByCardId($id);
+        return $card;
+    }
+
+    public static function getRandomCard(){
+        $card = Card::select('*')->inRandomOrder()->get()->first();
+        return $card;
+    }
+
+    public static function getAllCardNames(){
+        $cardNames = Card::select('name')->get();
+        return $cardNames;
     }
 }

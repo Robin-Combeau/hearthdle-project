@@ -33,4 +33,7 @@ Route::get('/getAllCardsFromApi', [ExternalApiController::class, 'getAllCardsFro
 
 
 
-Route::get('/cardImageWithoutName/{id}', [CardController::class, 'getCardImageWithoutName']);
+Route::get('/getcardImageWithoutName/{id}', [CardController::class, 'getCardImageWithoutName']);
+Route::get('/getRandomCard' , [CardController::class, 'getRandomCard']);
+
+Route::get('/getAllCardNames' , [CardController::class, 'getAllCardNames']);
