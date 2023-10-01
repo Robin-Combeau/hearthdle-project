@@ -3,12 +3,16 @@ import { Link } from "react-router-dom";
 export default function Index() {
     return (
         <>
-        <h1>Hearthdle</h1>
-        <h2>Gamemodes</h2>
-        <Link to="/gamemode/daily">Daily</Link> <br/>
-        <Link to="/gamemode/infinite">Infinite</Link>
-        <h4>Socials</h4>
-        <a href="https://www.github.com/robin-combeau/hearthdle">Github</a>
+            <h1>Hearthdle</h1>
+            <h2>Guess Hearthstone Cards</h2>
+            <h3>Gamemodes</h3>
+            <Link to="/gamemode/daily">Daily</Link> <br />
+            <Link to="/gamemode/infinite">Infinite</Link> <br />
+            <br />
+            <Link to="/about">About</Link> <br />
+            <Link to="/faq">FAQ</Link> <br />
+            <a href="https://www.github.com/robin-combeau/hearthdle">Github</a> <br />
+            <Link to="/patchnotes">Patchnotes</Link> <br />
         </>
     )
 }

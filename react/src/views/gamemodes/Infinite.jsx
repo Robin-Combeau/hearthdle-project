@@ -11,8 +11,10 @@ export default function Infinite() {
   const [selectedCardName, setSelectedCardName] = useState('');
   const [tentatives, setTentatives] = useState(0);
   const [rightGuess, setRightGuess] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
+    setImageLoaded(false);
     // Fetch random card data
     axios.get("http://127.0.0.1:8000/api/getRandomCard")
       .then((response1) => {
@@ -37,6 +39,7 @@ export default function Infinite() {
             const imageBlob = new Blob([response.data], { type: 'image/png' });
             const imageUrl = URL.createObjectURL(imageBlob);
             setCardImage(imageUrl);
+            setImageLoaded(true);
           })
           .catch((error) => {
             console.error("Error loading image:", error);
@@ -56,26 +59,35 @@ export default function Infinite() {
   }, [rightGuess]);
 
   const handleRightGuess = () => {
-    // call axios pour update le nombre de tentatives globales et perso
+    // TODO : Call axios pour update le nombre de tentatives globales et perso
   };
 
   return (
-    <div>
-      <img src={cardImage} /><br />
+    <>
+      <h2>Infinite</h2>
+      <h3>Guess the card's name</h3>
+      <div>
+        {imageLoaded ? (
+          <img src={cardImage} alt="Card" />
+        ) : (
+          <img src={cardImage} alt="Card" /> // TODO : Créer un placeholder
+        )}
+      </div>
+      <br />
       <CardNameInput
         allCardNames={allCardNames}
         selectedCardName={selectedCardName}
         setSelectedCardName={setSelectedCardName}
       />
-      <SubmitCardNameButton 
+      <SubmitCardNameButton
         selectedCardName={selectedCardName}
         card={card}
         onRightGuess={setRightGuess}
       />
       <TentativeCounter
-        tentatives = {tentatives}
+        tentatives={tentatives}
       />
       <div>{rightGuess.toString()}</div>
-    </div>
+    </>
   );
 }
