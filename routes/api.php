@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CardController;
 use App\Models\Card;
+use App\Models\GamemodeDaily;
 use App\Http\Controllers\ExternalApiController;
 
 /*
@@ -23,17 +24,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('card', CardController::class);
 
-Route::prefix('cards')->group(function () {
+Route::prefix('blizzard')->group(function () {
     Route::get('/addAllCardsFromBlizzardApi', [CardController::class, 'addAllCardsFromBlizzardApi']);
+    Route::get('/getAllCardsFromApi', [ExternalApiController::class, 'getAllCardsFromBlizzardApi']);
 });;
-Route::get('/getAllCardsFromApi', [ExternalApiController::class, 'getAllCardsFromBlizzardApi']);
 
-
-
-
-
-
+// Cards
+Route::resource('card', CardController::class);
 Route::get('/getCardImageWithoutName/{id}', [CardController::class, 'getCardImageWithoutName']);
 Route::get('/getRandomCard' , [CardController::class, 'getRandomCard']);
-
 Route::get('/getAllCardNames' , [CardController::class, 'getAllCardNames']);
+
+// Daily
+Route::prefix('gamemode')->group(function () {
+    Route::prefix('daily')->group(function () {
+        Route::get('/getLatestDailyCard', [GamemodeDaily::class, 'getLatestDailyCard']);
+    });;
+});;

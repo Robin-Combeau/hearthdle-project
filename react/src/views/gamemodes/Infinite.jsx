@@ -76,14 +76,7 @@ export default function Infinite() {
     <>
       <h2>Infinite</h2>
       <h3>Guess the card's name</h3>
-      <CardImage imageUrl={cardImage} altText="Card to Guess" />
-      {/* <div>
-        {imageLoaded ? (
-          <img src={cardImage} alt="Card" />
-        ) : (
-          <img src={cardImage} alt="Card" /> // TODO : Créer un placeholder
-        )}
-      </div> */}
+      <CardImage imageUrl={cardImage} altText="Card to Guess" imageLoaded={imageLoaded} />
       <br />
       <CardNameInput
         allCardNames={allCardNames}

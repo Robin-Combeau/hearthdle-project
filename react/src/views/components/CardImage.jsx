@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default function CardImage({ imageUrl, altText }) {
-  return (
-    <div>
-      {imageUrl ? (
-        <img src={imageUrl} alt={altText} />
-      ) : (
-        <img src={imageUrl} alt="Loading Image" /> // You can replace this with a placeholder or loading indicator
-      )}
-    </div>
-  );
+export default function CardImage({ imageUrl, altText, imageLoaded = true }) {
+    return (
+        <div>
+            {imageLoaded ? (
+                <img src={imageUrl} alt={altText} />
+            ) : (
+                <img width="375px" height="517px" src="../../public/cards/loading.png" alt="Loading Image" />
+            )}
+        </div>
+    );
 }

@@ -203,4 +203,9 @@ class CardController extends Controller
         $cardNames = Card::select('name')->get();
         return $cardNames;
     }
+
+    public static function getDailyCard(){
+        $card = Card::findByCardId($id);
+        return $card;
+    }
 }
