@@ -12,8 +12,9 @@ export default function Infinite() {
   const [tentatives, setTentatives] = useState(0);
   const [rightGuess, setRightGuess] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [test, setTest] = useState(import.meta.env.VITE_API_KEY);
 
-  useEffect(() => {
+  useEffect(() => { 
     setImageLoaded(false);
     // Fetch random card data
     axios.get("http://127.0.0.1:8000/api/getRandomCard")
