@@ -3,6 +3,7 @@ import axios from "axios";
 import CardNameInput from '../components/CardNameInput';
 import SubmitCardNameButton from '../components/SubmitCardNameButton';
 import TentativeCounter from '../components/TentativeCounter';
+import CardImage from '../components/CardImage';
 
 export default function Infinite() {
   const [card, setCard] = useState([]);
@@ -12,19 +13,21 @@ export default function Infinite() {
   const [tentatives, setTentatives] = useState(0);
   const [rightGuess, setRightGuess] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [test, setTest] = useState(import.meta.env.VITE_API_KEY);
+  const headers = {
+    'X-Api-Key': import.meta.env.VITE_API_KEY,
+  };
 
-  useEffect(() => { 
+  useEffect(() => {
     setImageLoaded(false);
     // Fetch random card data
-    axios.get("http://127.0.0.1:8000/api/getRandomCard")
+    axios.get("http://127.0.0.1:8000/api/getRandomCard", { headers })
       .then((response1) => {
         const cardData = response1.data;
         setCard(cardData);
         console.log(cardData);
 
         // Fetch all card names
-        axios.get("http://127.0.0.1:8000/api/getAllCardNames")
+        axios.get("http://127.0.0.1:8000/api/getAllCardNames", { headers })
           .then((response2) => {
             //Set for unique card
             const cardNames = [...new Set(response2.data.map((card) => card.name))];
@@ -35,7 +38,13 @@ export default function Infinite() {
           });
 
         // Fetch card image
-        axios.get(`http://127.0.0.1:8000/api/getcardImageWithoutName/${cardData.cardId}`, { responseType: 'arraybuffer' })
+        axios.get(`http://127.0.0.1:8000/api/getCardImageWithoutName/${cardData.cardId}`,
+          {
+            responseType: 'arraybuffer',
+            headers: {
+              'X-Api-Key': import.meta.env.VITE_API_KEY,
+            }
+          })
           .then((response) => {
             const imageBlob = new Blob([response.data], { type: 'image/png' });
             const imageUrl = URL.createObjectURL(imageBlob);
@@ -67,13 +76,14 @@ export default function Infinite() {
     <>
       <h2>Infinite</h2>
       <h3>Guess the card's name</h3>
-      <div>
+      <CardImage imageUrl={cardImage} altText="Card to Guess" />
+      {/* <div>
         {imageLoaded ? (
           <img src={cardImage} alt="Card" />
         ) : (
           <img src={cardImage} alt="Card" /> // TODO : Créer un placeholder
         )}
-      </div>
+      </div> */}
       <br />
       <CardNameInput
         allCardNames={allCardNames}
