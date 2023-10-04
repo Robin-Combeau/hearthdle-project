@@ -1,8 +1,10 @@
 {
     "compilerOptions": {
-      "module": "ES6",
+      "target": "esnext",
+      "module": "esnext",
       "jsx": "preserve",
-      "checkJs": true
+      "checkJs": true,
+      "types": ["vite/client"]
     },
     "exclude": ["node_modules", "**/node_modules/*"]
   }
