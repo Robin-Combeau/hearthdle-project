@@ -7,7 +7,7 @@ import CardImage from '../components/CardImage';
 
 export default function Infinite() {
   const [card, setCard] = useState([]);
-  const [cardImage, setCardImage] = useState([]);
+  const [cardImage, setCardImage] = useState('');
   const [allCardNames, setAllCardNames] = useState([]);
   const [selectedCardName, setSelectedCardName] = useState('');
   const [tentatives, setTentatives] = useState(0);
