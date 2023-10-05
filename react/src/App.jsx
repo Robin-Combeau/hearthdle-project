@@ -5,6 +5,11 @@ import MainRoutes from './MainRoutes';
 
 export default function App() {
   return (
-    <MainRoutes />
+    <>
+      <div className="background-container">
+        <div className="background-filter"></div>
+      </div>
+      <MainRoutes />
+    </>
   );
 }
