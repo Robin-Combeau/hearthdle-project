@@ -7,7 +7,7 @@ import CardImage from '../components/CardImage';
 
 export default function Daily() {
   const [card, setCard] = useState([]);
-  const [cardImage, setCardImage] = useState([]);
+  const [cardImage, setCardImage] = useState('');
   const [allCardNames, setAllCardNames] = useState([]);
   const [selectedCardName, setSelectedCardName] = useState('');
   const [tentatives, setTentatives] = useState(0);
@@ -16,6 +16,7 @@ export default function Daily() {
   const headers = {
     'X-Api-Key': import.meta.env.VITE_API_KEY,
   };
+  //  'es2020', 'es2022', 'esnext', 'system', 'node16', or 'nodenext'
 
   useEffect(() => {
     setImageLoaded(false);

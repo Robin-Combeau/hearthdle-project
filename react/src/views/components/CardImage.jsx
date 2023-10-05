@@ -6,7 +6,7 @@ export default function CardImage({ imageUrl, altText, imageLoaded = true }) {
             {imageLoaded ? (
                 <img src={imageUrl} alt={altText} />
             ) : (
-                <img width="375px" height="517px" src="../../public/cards/loading.png" alt="Loading Image" />
+                <img width="375px" height="517px" src="../../public/images/cards/loading.png" alt="Loading Image" />
             )}
         </div>
     );
