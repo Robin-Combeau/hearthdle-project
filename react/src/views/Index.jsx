@@ -17,7 +17,17 @@ export default function Index() {
                 </div>
             </div>
             <div className="text-center footer">
-                <p>hearthdle.xxx - 2023</p>
+                <div className="circle-container">
+                    <a href="https://www.github.com" className="circle-link">
+                        <img className="img-fluid footer-logo" src="../icons/github.svg" alt="Github" />
+                    </a>
+                </div>
+                <div className="circle-container">
+                    <a href="https://www.example.com" className="circle-link">
+                        <img className="img-fluid footer-logo" src="../icons/github.svg" alt="Example" />
+                    </a>
+                </div>
+                <p>hearthdle.com - 2023</p>
             </div>
         </>
     )
