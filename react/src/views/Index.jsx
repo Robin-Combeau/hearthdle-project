@@ -8,11 +8,16 @@ export default function Index() {
                 <img className="img-fluid hearthdle-logo-main" src="../images/logos/hearthdle_logo.png" alt="Hearthdle Logo" />
                 <h1 className="title" data-text="Hearthdle">Hearthdle</h1>
                 <h2 className="subtitle" data-text="Guess Hearthstone cards">Guess Hearthstone cards</h2>
-                <Button label="Play" className="play-button" to="/gamemodes" />
-                <div>
-                    <Button label="About" className="" to="/about" />
-                    <Button label="FAQ" className="" to="/faq" />
+                <div className="row">
+                    <Button label="Play" className="play-button" to="/gamemodes" />
+                    <div>
+                        <Button label="About" className="medium-button medium-button-main" to="/about" />
+                        <Button label="FAQ" className="medium-button medium-button-main" to="/faq" />
+                    </div>
                 </div>
+            </div>
+            <div className="text-center footer">
+                <p>hearthdle.xxx - 2023</p>
             </div>
         </>
     )
