@@ -1,17 +1,42 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import PageMainTitle from "./components/PageMainTitle";
+import Footer from "./components/Footer";
+import PageTitle from "./components/PageTitle";
 
 export default function Gamemodes() {
+    const navigate = useNavigate();
+
     return (
         <>
-            <h1>Hearthdle</h1>
-            <h2>Guess Hearthstone Cards</h2>
-            <h3>Gamemodes</h3>
-            <Link to="/gamemode/daily">Daily</Link> <br />
-            <Link to="/gamemode/infinite">Infinite</Link> <br />
-            <br />
-            <Link to="/about">About</Link> <br />
-            <Link to="/faq">FAQ</Link> <br />
-            <a href="https://www.github.com/robin-combeau/hearthdle">Github</a> <br />
+            <div className="text-center page">
+                <PageMainTitle />
+                <PageTitle text="Gamemodes" />
+                <div className="gamemode-buttons-container">
+                    <button className="gamemode-bubble" onClick={() => navigate('/wild')}>
+                        <img src="../../public/images/logos/gamemodes/standard.png" />
+                        <h3 data-text="Standard">Standard</h3>
+                        <p>Only Core and the last 2 years of cards.</p>
+                    </button>
+                    <button className="gamemode-bubble" onClick={() => navigate('/wild')}>
+                        <img src="../../public/images/logos/gamemodes/wild.png" />
+                        <h3 data-text="Wild">Wild</h3>
+                        <p>All cards except Classic format cards.</p>
+                    </button>
+                </div>
+                <div className="gamemode-buttons-container">
+                <button className="gamemode-bubble" onClick={() => navigate('/wild')}>
+                        <img src="../../public/images/logos/gamemodes/classic.png" />
+                        <h3 data-text="Classic">Classic</h3>
+                        <p>Only cards from the original release.</p>
+                    </button>
+                    <button className="gamemode-bubble" onClick={() => navigate('/wild')}>
+                        <img src="../../public/images/logos/gamemodes/twist.png" />
+                        <h3 data-text="Twist">Twist</h3>
+                        <p>Only cards in the twist fomat.</p>
+                    </button>
+                </div>
+            </div>
+            <Footer />
         </>
     )
 }

@@ -9,6 +9,11 @@
     src: url('fonts/Belwe/belwe-bd-bt-bold.ttf');
 }
 
+body {
+    position: relative;
+    text-align: center;
+}
+
 /* Reset default styles for the body */
 body {
     margin: 0;
@@ -21,6 +26,18 @@ body {
 a {
     text-decoration: none;
     color: #FFE164;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
 
 .background-container {
@@ -40,8 +57,9 @@ a {
 
 /* For the white filter */
 .background-filter::before {
-    content: '';
     position: absolute;
+    z-index: -10;
+    content: '';
     top: 0;
     left: 0;
     width: 100%;
@@ -77,11 +95,13 @@ button {
     max-width: 160px;
     height: auto;
 }
-.app-title{
+
+.app-title {
     transition: all 0.3s;
 }
+
 .app-title:hover,
-.app-title:focus{
+.app-title:focus {
     transform: scale(1.05);
 }
 
@@ -112,7 +132,7 @@ button {
 }
 
 .page-title {
-    position:relative;
+    position: relative;
     font-family: Belwe Bd BT;
     margin-top: -20px;
     margin-bottom: 1vh;
@@ -133,7 +153,6 @@ button {
     font-size: 1.7rem;
     z-index: -1;
 }
-
 
 .subtitle {
     font-family: Belwe Bd BT;
@@ -185,6 +204,7 @@ button {
     text-decoration: none;
     display: inline-block;
     transition: all 0.3s;
+    padding: 0.6em 3.4em;
 }
 
 .play-button:hover,
@@ -198,7 +218,6 @@ button {
 
 .medium-button {
     font-family: Belwe Bd BT;
-    margin-top:3vh;
     color: #000;
     font-size: 1.8rem;
     background: #FBDFB2;
@@ -220,17 +239,18 @@ button {
 }
 
 .medium-buttons-main {
-    margin-top: 1.4em;
-}
-
-.medium-buttons-main a {
-    margin-right: 1em;
-    margin-left: 1em;
+    margin-top: 2em;
 }
 
 .medium-button-main {
     padding: 0.2em 0.2em;
     width: 4.5em;
+    margin-right: 1.1em;
+    margin-left: 1.1em;
+}
+
+.medium-button-margin-top {
+    margin-top: 3em;
 }
 
 .circle-container {
@@ -273,15 +293,67 @@ button {
 
 .text-bubble h3 {
     font-family: Belwe;
-    margin: 0.5em 1.5em;
+    font-size: 1.6em;
+    margin: 0.5em 1.5em 0.5em 1.5em;
 }
 
 .text-bubble p {
     font-size: 1.25em;
     line-height: 1.15em;
-    margin: 0.5em 1.5em;
+    letter-spacing: 0.03em;
+    margin: 1em 1.5em 1em 1.5em;
+}
+.gamemode-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
+.gamemode-bubble {
+    width: 40vh;
+    max-width: 250px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.85);
+    margin:1em 2em;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.gamemode-bubble:hover,
+.gamemode-bubble:focus {
+    transform: scale(1.05);
+}
+
+
+.gamemode-bubble h3 {
+    font-family: Belwe;
+    color:#FFE164;
+    font-size:2.2em;
+    position:relative;
+    margin: 0.5em 1.5em;
+    margin-top: -1em;
+    z-index: 1;
+}
+
+.gamemode-bubble h3:before {
+    content: attr(data-text);
+    position:relative;
+    position: absolute;
+    -webkit-text-stroke: 7px black;
+    z-index: -1;
+}
+
+.gamemode-bubble img {
+    position:relative;
+    margin-top:1vh;
+}
+
+.gamemode-bubble p {
+    color: #FBDFB2;
+    font-size: 1.25em;
+    line-height: 1.15em;
+    margin: 1em 1.5em;
+}
 
 .footer {
     position: fixed;
