@@ -12,24 +12,24 @@ export default function Gamemodes() {
                 <PageMainTitle />
                 <PageTitle text="Gamemodes" />
                 <div className="gamemode-buttons-container">
-                    <button className="gamemode-bubble" onClick={() => navigate('/wild')}>
+                    <button className="gamemode-bubble" onClick={() => navigate('/gamemode/standard')}>
                         <img src="../../public/images/logos/gamemodes/standard.png" />
                         <h3 data-text="Standard">Standard</h3>
                         <p>Only Core and the last 2 years of cards.</p>
                     </button>
-                    <button className="gamemode-bubble" onClick={() => navigate('/wild')}>
+                    <button className="gamemode-bubble" onClick={() => navigate('/gamemode/wild')}>
                         <img src="../../public/images/logos/gamemodes/wild.png" />
                         <h3 data-text="Wild">Wild</h3>
                         <p>All cards except Classic format cards.</p>
                     </button>
                 </div>
                 <div className="gamemode-buttons-container">
-                <button className="gamemode-bubble" onClick={() => navigate('/wild')}>
+                <button className="gamemode-bubble" onClick={() => navigate('/gamemode/classic')}>
                         <img src="../../public/images/logos/gamemodes/classic.png" />
                         <h3 data-text="Classic">Classic</h3>
                         <p>Only cards from the original release.</p>
                     </button>
-                    <button className="gamemode-bubble" onClick={() => navigate('/wild')}>
+                    <button className="gamemode-bubble" onClick={() => navigate('/gamemode/twist')}>
                         <img src="../../public/images/logos/gamemodes/twist.png" />
                         <h3 data-text="Twist">Twist</h3>
                         <p>Only cards in the twist fomat.</p>

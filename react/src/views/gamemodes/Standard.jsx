@@ -5,7 +5,7 @@ import SubmitCardNameButton from '../components/SubmitCardNameButton';
 import TentativeCounter from '../components/TentativeCounter';
 import CardImage from '../components/CardImage';
 
-export default function Daily() {
+export default function Standard() {
   const [card, setCard] = useState([]);
   const [cardImage, setCardImage] = useState('');
   const [allCardNames, setAllCardNames] = useState([]);
@@ -16,7 +16,6 @@ export default function Daily() {
   const headers = {
     'X-Api-Key': import.meta.env.VITE_API_KEY,
   };
-  //  'es2020', 'es2022', 'esnext', 'system', 'node16', or 'nodenext'
 
   useEffect(() => {
     setImageLoaded(false);
