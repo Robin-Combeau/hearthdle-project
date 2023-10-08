@@ -10,7 +10,7 @@ export default function About() {
     <>
 
       <div className="text-center page">
-        <PageMainTitle />
+        <PageMainTitle/>
         <PageTitle text="About"/>
 
         <div className="text-bubble">

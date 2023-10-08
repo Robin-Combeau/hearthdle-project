@@ -1,7 +1,10 @@
 import React from 'react'
 
-export default function TentativeCounter({tentatives}) {
+export default function TentativeCounter({ tentatives }) {
   return (
-    <div>{tentatives} tentatives.</div>
+    <>
+      <p>Attempts :</p>
+      <div className="tentatives">{tentatives}</div>
+    </>
   )
 }
