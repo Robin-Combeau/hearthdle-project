@@ -79,20 +79,20 @@ export default function Standard() {
     <>
       <div className="text-center page">
         <PageMainTitle />
-        <PageTitle text="Standard" />
       </div>
-      <CardImage imageUrl={cardImage} altText="Card to Guess" imageLoaded={imageLoaded} />
+      <div className="text-center page">
+        <CardImage imageUrl={cardImage} altText="Card to Guess" imageLoaded={imageLoaded} />
+      </div>
       <br />
       <div className="input-card-name-div">
         <CardNameInput
           allCardNames={allCardNames}
           selectedCardName={selectedCardName}
           setSelectedCardName={setSelectedCardName}
-        />
-        <SubmitCardNameButton
-          selectedCardName={selectedCardName}
           card={card}
           onRightGuess={setRightGuess}
+          tentatives={tentatives}
+          setTentatives={setTentatives}
         />
       </div>
       <TentativeCounter
