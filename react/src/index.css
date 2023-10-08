@@ -29,15 +29,19 @@ a {
 }
 
 button,
-input[type="submit"],
-input[type="reset"] {
+input {
     background: none;
     color: inherit;
     border: none;
     padding: 0;
     font: inherit;
-    cursor: pointer;
     outline: inherit;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+    cursor: pointer;
 }
 
 .background-container {
@@ -89,6 +93,7 @@ button {
     font-size: 0.8em;
 }
 
+/* Hearthdle logo on main page*/
 .hearthdle-logo-main {
     width: 10vw;
     min-width: 120px;
@@ -96,21 +101,14 @@ button {
     height: auto;
 }
 
-.app-title {
-    transition: all 0.3s;
-}
-
-.app-title:hover,
-.app-title:focus {
-    transform: scale(1.05);
-}
-
+/* Hearthdle logo on every page */
 .hearthdle-logo-page {
     width: 80px;
     height: auto;
     z-index: -2;
 }
 
+/* Main page title */
 .title {
     font-family: Belwe Bd BT;
     margin-top: 5vh;
@@ -131,6 +129,17 @@ button {
     z-index: -1;
 }
 
+/* Hearthdle title on every page */
+.app-title {
+    transition: all 0.3s;
+}
+
+.app-title:hover,
+.app-title:focus {
+    transform: scale(1.05);
+}
+
+/* Hearthdle title on every page */
 .page-title {
     position: relative;
     font-family: Belwe Bd BT;
@@ -154,6 +163,7 @@ button {
     z-index: -1;
 }
 
+/* Main page subtitle */
 .subtitle {
     font-family: Belwe Bd BT;
     color: #FBDFB2;
@@ -172,6 +182,7 @@ button {
     z-index: -1;
 }
 
+/* Page title */
 .page-subtitle {
     font-family: Belwe Bd BT;
     color: #FBDFB2;
@@ -216,6 +227,8 @@ button {
     box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.4);
 }
 
+
+/* Go back button */
 .medium-button {
     font-family: Belwe Bd BT;
     color: #000;
@@ -253,6 +266,7 @@ button {
     margin-top: 3em;
 }
 
+/* Footer circle links */
 .circle-container {
     display: inline-block;
     margin: 10px;
@@ -282,6 +296,7 @@ button {
     box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.4);
 }
 
+/* About & FAQ */
 .text-bubble {
     width: 90vw;
     max-width: 550px;
@@ -303,6 +318,9 @@ button {
     letter-spacing: 0.03em;
     margin: 1em 1.5em 1em 1.5em;
 }
+
+
+/* Gamemodes page */
 .gamemode-buttons-container {
     display: flex;
     flex-wrap: wrap;
@@ -315,7 +333,7 @@ button {
     flex-shrink: 0;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.85);
-    margin:1.5em 1.5em;
+    margin: 1.5em 1.5em;
     z-index: 1;
     transition: all 0.3s;
 }
@@ -328,9 +346,9 @@ button {
 
 .gamemode-bubble h3 {
     font-family: Belwe;
-    color:#FFE164;
-    font-size:2.2em;
-    position:relative;
+    color: #FFE164;
+    font-size: 2.2em;
+    position: relative;
     margin: 0.5em 1.5em;
     margin-top: -1em;
     z-index: 1;
@@ -338,15 +356,15 @@ button {
 
 .gamemode-bubble h3:before {
     content: attr(data-text);
-    position:relative;
+    position: relative;
     position: absolute;
     -webkit-text-stroke: 8px black;
     z-index: -1;
 }
 
 .gamemode-bubble img {
-    position:relative;
-    margin-top:1vh;
+    position: relative;
+    margin-top: 1vh;
 }
 
 .gamemode-bubble p {
@@ -355,6 +373,69 @@ button {
     line-height: 1.15em;
     margin: 1em 1.5em;
 }
+
+
+/* Game */
+.input-card-name-div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-card-name-div input {
+    flex: 1;
+    align-items: center;
+    width: 80vw;
+    max-width: 400px;
+    font-family: Belwe;
+    font-size: 2em;
+    padding: 0.2em 0.5em;
+    color: #FFE164;
+    background-color: #000;
+}
+
+.input-card-name-div button {
+    padding: 0.1em 0.4em;
+    background-color: #000;
+    color: #FFE164;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.submit-icon {
+    color: #FFE164;
+    padding: 0.54em 0.25em;
+}
+
+.cardname-dropdown {
+    position: relative;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.cardname-dropdown-option {
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f2f2f2;
+    }
+}
+
+
+
+
+
+
+
 
 .footer {
     position: fixed;

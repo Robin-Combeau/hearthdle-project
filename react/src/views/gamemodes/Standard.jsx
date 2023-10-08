@@ -4,6 +4,9 @@ import CardNameInput from '../components/CardNameInput';
 import SubmitCardNameButton from '../components/SubmitCardNameButton';
 import TentativeCounter from '../components/TentativeCounter';
 import CardImage from '../components/CardImage';
+import PageMainTitle from '../components/PageMainTitle';
+import PageTitle from '../components/PageTitle';
+import Footer from '../components/Footer';
 
 export default function Standard() {
   const [card, setCard] = useState([]);
@@ -74,24 +77,29 @@ export default function Standard() {
 
   return (
     <>
-      <h2>Daily</h2>
-      <h3>Guess the card's name</h3>
+      <div className="text-center page">
+        <PageMainTitle />
+        <PageTitle text="Standard" />
+      </div>
       <CardImage imageUrl={cardImage} altText="Card to Guess" imageLoaded={imageLoaded} />
       <br />
-      <CardNameInput
-        allCardNames={allCardNames}
-        selectedCardName={selectedCardName}
-        setSelectedCardName={setSelectedCardName}
-      />
-      <SubmitCardNameButton
-        selectedCardName={selectedCardName}
-        card={card}
-        onRightGuess={setRightGuess}
-      />
+      <div className="input-card-name-div">
+        <CardNameInput
+          allCardNames={allCardNames}
+          selectedCardName={selectedCardName}
+          setSelectedCardName={setSelectedCardName}
+        />
+        <SubmitCardNameButton
+          selectedCardName={selectedCardName}
+          card={card}
+          onRightGuess={setRightGuess}
+        />
+      </div>
       <TentativeCounter
         tentatives={tentatives}
       />
       <div>{rightGuess.toString()}</div>
+      <Footer />
     </>
   );
 }

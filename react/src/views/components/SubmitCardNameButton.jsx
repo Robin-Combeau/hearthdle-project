@@ -17,7 +17,7 @@ export default function SubmitCardNameButton({ card, selectedCardName, onRightGu
 
     return (
         <>
-            <button onClick={submitCardName}>Submit card name</button>
+            <button onClick={submitCardName}><img className="submit-icon" src="/icons/chevron-right.svg" /></button>
         </>
     );
 }
