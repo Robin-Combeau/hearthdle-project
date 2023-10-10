@@ -49,17 +49,19 @@ export default function CardNameInput({
     };
 
     return (
-        <div className="cardname-input-container">
-            <div className="cardname-input">
-                <input
-                    type="text"
-                    value={inputValue}
-                    placeholder="Enter a card name"
-                    onChange={handleInputChange}
-                />
-                <button onClick={submitCardName}>
-                    <img className="submit-icon" src="/icons/chevron-right.svg" />
-                </button>
+        <>
+            <div className="cardname-input-container">
+                <div className="cardname-input">
+                    <input
+                        type="text"
+                        value={inputValue}
+                        placeholder="Enter a card name"
+                        onChange={handleInputChange}
+                    />
+                    <button onClick={submitCardName}>
+                        <img className="submit-icon" src="/icons/chevron-right.svg" />
+                    </button>
+                </div>
             </div>
             {showDropdown && inputValue && (
                 <div className="cardname-dropdown">
@@ -74,6 +76,6 @@ export default function CardNameInput({
                     ))}
                 </div>
             )}
-        </div>
+        </>
     );
 }

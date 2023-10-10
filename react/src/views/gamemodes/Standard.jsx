@@ -76,26 +76,13 @@ export default function Standard() {
   };
 
   return (
-    <>
-      <div className="page">
+    <div className="page">
       <PageMainTitle />
-        <div className="col-container">
-          <div className="col">
-            <PageMainTitle
-              title="Standard"
-              link="/images/logos/gamemodes/standard.png"
-              image="/images/logos/gamemodes/standard.png" />
-            <div className="text-bubble text-bubble-small">
-              <TentativeCounter
-                tentatives={tentatives}
-              />
-            </div>
-          </div>
-          <div className="col">
-            <CardImage imageUrl={cardImage} altText="Card to Guess" imageLoaded={imageLoaded} />
-          </div>
-        </div>
+      <div>
+        {/* Ajouter la partie à gauche ici */}
+        <CardImage imageUrl={cardImage} altText="Card to Guess" imageLoaded={imageLoaded} />
       </div>
+
       <div className="input-card-name-div">
         <CardNameInput
           allCardNames={allCardNames}
@@ -107,8 +94,10 @@ export default function Standard() {
           setTentatives={setTentatives}
         />
       </div>
+
       <div>{rightGuess.toString()}</div>
+
       <Footer />
-    </>
+    </div>
   );
 }
