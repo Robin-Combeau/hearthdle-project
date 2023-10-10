@@ -8,10 +8,10 @@ import PageTitle from './components/PageTitle'
 export default function Faq() {
   return (
     <>
-      <div className="text-center page">
-      <PageMainTitle />
+      <div className="page">
+        <PageMainTitle />
 
-      <PageTitle text="FAQ"/>
+        <PageTitle text="FAQ" />
 
         <div className="text-bubble">
           <h3>When is the daily reset ?</h3>
@@ -29,9 +29,9 @@ export default function Faq() {
             It will depend a lot of the popularity and support Hearthdle gets.</p>
         </div>
 
-        <Button label="Go back" className="medium-button medium-button-margin-top" to="/" />
+        <Button label="Go back" className="medium-button medium-button-margin-top scale" to="/" />
+        <Footer />
       </div >
-      <Footer />
     </>
   )
 }

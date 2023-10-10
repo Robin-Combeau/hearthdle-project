@@ -9,9 +9,9 @@ export default function About() {
   return (
     <>
 
-      <div className="text-center page">
-        <PageMainTitle/>
-        <PageTitle text="About"/>
+      <div className="page">
+        <PageMainTitle />
+        <PageTitle text="About" />
 
         <div className="text-bubble">
           <p>Hearthdle is a guessing game about Hearthstone and was created under Blizzard's Legal Informations,
@@ -28,9 +28,10 @@ export default function About() {
             <br /><br />Click for more info.</p>
         </div>
 
-        <Button label="Go back" className="medium-button medium-button-margin-top" to="/" />
+        <Button label="Go back" className="medium-button medium-button-margin-top scale" to="/" />
+        <Footer />
       </div >
-      <Footer />
+
     </>
   )
 }

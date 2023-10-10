@@ -77,16 +77,14 @@ export default function Standard() {
 
   return (
     <>
-      <div className="text-center page">
-        <PageMainTitle />
-      </div>
-      <div className="text-center page">
+      <div className="page">
+      <PageMainTitle />
         <div className="col-container">
           <div className="col">
             <PageMainTitle
               title="Standard"
-              link="../../public/images/logos/gamemodes/standard.png"
-              image="../../public/images/logos/gamemodes/standard.png" />
+              link="/images/logos/gamemodes/standard.png"
+              image="/images/logos/gamemodes/standard.png" />
             <div className="text-bubble text-bubble-small">
               <TentativeCounter
                 tentatives={tentatives}

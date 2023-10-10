@@ -4,16 +4,18 @@ export default function Footer() {
     const today = new Date();
 
     return (
-        <div className="text-center footer">
-            <div className="circle-container">
-                <a href="https://www.github.com" className="circle-link">
-                    <img className="img-fluid footer-logo" src="../icons/github.svg" alt="Github" />
-                </a>
-            </div>
-            <div className="circle-container">
-                <a href="https://www.github.com" className="circle-link">
-                    <img className="img-fluid footer-logo" src="../icons/github.svg" alt="Example" />
-                </a>
+        <div className="footer">
+            <div>
+                <div className="circle-container">
+                    <a href="https://github.com/Robin-Combeau/hearthdle-project" className="circle-link">
+                        <img className="img-fluid footer-logo" src="../icons/github.svg" alt="Github" />
+                    </a>
+                </div>
+                <div className="circle-container">
+                    <a href="/patchnotes" className="circle-link">
+                        <img className="img-fluid footer-logo" src="../icons/github.svg" alt="Example" />
+                    </a>
+                </div>
             </div>
             <p>hearthdle.com - {today.getFullYear()}</p>
         </div>

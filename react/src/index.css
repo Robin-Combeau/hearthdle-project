@@ -9,11 +9,6 @@
     src: url('fonts/Belwe/belwe-bd-bt-bold.ttf');
 }
 
-body {
-    position: relative;
-    text-align: center;
-}
-
 /* Reset default styles for the body */
 body {
     margin: 0;
@@ -21,6 +16,11 @@ body {
     font-family: ITCFranklinGothicMedium;
     color: #FBDFB2;
     overflow-x: hidden;
+}
+
+body {
+    position: relative;
+    text-align: center;
 }
 
 a {
@@ -52,7 +52,7 @@ input[type="reset"] {
     height: 100%;
     z-index: -10;
 
-    background-image: url('../public/images/background/UnitedinStormwind_007.webp');
+    background-image: url('/images/background/UnitedinStormwind_007.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left center;
@@ -77,28 +77,21 @@ button {
     box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.25);
 }
 
-.main {
-    margin-top: 10vh;
-}
-
 .page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    margin-top: 2vh;
-}
-
-.footer {
-    font-size: 0.8em;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 /* Hearthdle logo on main page*/
 .hearthdle-logo-main {
     width: 10vw;
-    min-width: 120px;
+    min-width: 110px;
     max-width: 160px;
     height: auto;
+    margin-top:5vh;
 }
 
 /* Hearthdle logo on every page */
@@ -132,6 +125,7 @@ button {
 /* Hearthdle title on every page */
 .app-title {
     transition: all 0.3s;
+    margin-top:2vh;
 }
 
 .app-title:hover,
@@ -239,7 +233,6 @@ button {
     border: none;
     text-decoration: none;
     display: inline-block;
-    transition: all 0.3s;
     text-align: center;
     overflow: hidden;
 }
@@ -247,46 +240,44 @@ button {
 .medium-button:hover,
 .medium-button:focus {
     background: #c9b38e;
-    transition: all 0.3s;
     box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.4);
 }
 
 .medium-buttons-main {
-    margin-top: 2em;
+    margin-top: 1.6em;
 }
 
 .medium-button-main {
-    padding: 0.2em 0.2em;
-    width: 4.5em;
-    margin-right: 1.1em;
-    margin-left: 1.1em;
+    padding: 0.3em 0.2em;
+    width: 4.8em;
+    margin-right: 0.75em;
+    margin-left: 0.75em;
 }
 
 .medium-button-margin-top {
-    margin-top: 2vh;
+    margin-top: 5vh;
 }
 
 /* Footer circle links */
 .circle-container {
     display: inline-block;
-    margin: 10px;
+    margin: 0px 10px;
 }
 
 .circle-link {
-    display: inline-block;
+    display: block;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     overflow: hidden;
     text-align: center;
-    vertical-align: middle;
     line-height: 40px;
     background-color: #FBDFB2;
 }
 
 .circle-link img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 60%;
+    height: 100%;
 }
 
 .circle-link:hover,
@@ -325,13 +316,13 @@ button {
     margin-bottom: 0;
 }
 
-.text-bubble-small p{
+.text-bubble-small p {
     margin: 0;
 }
 
-.tentatives{
-    font-family:Belwe;
-    font-size:2em;
+.tentatives {
+    font-family: Belwe;
+    font-size: 2em;
 }
 
 
@@ -350,21 +341,22 @@ button {
     background: rgba(0, 0, 0, 0.85);
     margin: 1.5em 1.5em;
     z-index: 1;
+}
+
+.scale{
     transition: all 0.3s;
 }
-
-.gamemode-bubble:hover,
-.gamemode-bubble:focus {
+.scale:hover,
+.scale:focus {
     transform: scale(1.05);
 }
-
 
 .gamemode-bubble h3 {
     font-family: Belwe;
     color: #FFE164;
     font-size: 2.2em;
     position: relative;
-    margin: 0.5em 1.5em;
+    margin: 0.5em 0em;
     margin-top: -1em;
     z-index: 1;
 }
@@ -379,14 +371,14 @@ button {
 
 .gamemode-bubble img {
     position: relative;
-    margin-top: 1vh;
+    margin-top: 0.8em;
 }
 
 .gamemode-bubble p {
     color: #FBDFB2;
     font-size: 1.25em;
     line-height: 1.15em;
-    margin: 1em 1.5em;
+    margin: 0.5em 1.5em 1em 1.5em;
 }
 
 
@@ -470,23 +462,27 @@ button {
     align-items: center;
 }
 
-.col{
-    height:400px;
-    width:320px;
+.col {
+    height: 400px;
+    width: 320px;
     align-items: center;
 }
 
-.card-to-guess{
-    height:60vh;
-    max-height:400px;
+.card-to-guess {
+    height: 60vh;
+    max-height: 400px;
 }
 
 .footer {
-    position: fixed;
+    /* position: fixed;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 0; */
+    margin-top:8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: #FBDFB2;
-    padding: 0.8em;
-    text-align: center;
+    font-size: 0.8em;
 }
