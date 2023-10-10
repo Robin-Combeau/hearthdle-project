@@ -8,12 +8,12 @@ export default function Footer() {
             <div>
                 <div className="circle-container">
                     <a href="https://github.com/Robin-Combeau/hearthdle-project" className="circle-link">
-                        <img className="img-fluid footer-logo" src="../icons/github.svg" alt="Github" />
+                        <img className="footer-logo" src="../icons/github.svg" alt="Github" />
                     </a>
                 </div>
                 <div className="circle-container">
                     <a href="/patchnotes" className="circle-link">
-                        <img className="img-fluid footer-logo" src="../icons/github.svg" alt="Example" />
+                        <img className="footer-logo" src="../icons/github.svg" alt="Example" />
                     </a>
                 </div>
             </div>

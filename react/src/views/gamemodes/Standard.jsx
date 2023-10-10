@@ -7,6 +7,8 @@ import CardImage from '../components/CardImage';
 import PageMainTitle from '../components/PageMainTitle';
 import PageTitle from '../components/PageTitle';
 import Footer from '../components/Footer';
+import GamemodeTitle from '../components/GamemodeTitle';
+import { Link } from 'react-router-dom';
 
 export default function Standard() {
   const [card, setCard] = useState([]);
@@ -78,9 +80,18 @@ export default function Standard() {
   return (
     <div className="page">
       <PageMainTitle />
-      <div>
-        {/* Ajouter la partie à gauche ici */}
+      <div className="card-and-infos">
         <CardImage imageUrl={cardImage} altText="Card to Guess" imageLoaded={imageLoaded} />
+        <div className="game-infos">
+          <GamemodeTitle title="Standard" image="/images/logos/gamemodes/standard.png" />
+          <div className="text-bubble text-bubble-side">
+            <p>Attempts</p>
+            <div className="tentatives">{tentatives}</div>
+          </div>
+          <div className="text-bubble text-bubble-side scale">
+            <Link to="/how-to-play">How to play</Link>
+          </div>
+        </div>
       </div>
 
       <div className="input-card-name-div">
@@ -95,7 +106,10 @@ export default function Standard() {
         />
       </div>
 
-      <div>{rightGuess.toString()}</div>
+      <div className="text-bubble text-bubble-small">
+            <p>XX people already found out</p>
+      </div>
+      {/* <div>{rightGuess.toString()}</div> */}
 
       <Footer />
     </div>
