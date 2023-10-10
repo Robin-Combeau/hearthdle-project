@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
+import PageMainTitle from "./components/PageMainTitle";
+import PageTitle from "./components/PageTitle";
 
 export default function NotFound() {
     return (
-        <div>
-            <Link to="/"><img src='../public/cards/404/lost.png' alt='404 Image' /></Link>
-        </div>
+        <>
+            <div className="page">
+                <PageMainTitle />
+                <PageTitle text="404 - Page not found" />
+                <Link to="/"><img src='/images/cards/404/lost.png' className="scale" alt='404 Image' /></Link>
+            </div>
+        </>
     )
 }
