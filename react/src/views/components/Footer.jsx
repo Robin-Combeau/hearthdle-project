@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     const today = new Date();
@@ -7,13 +8,18 @@ export default function Footer() {
         <div className="footer">
             <div>
                 <div className="circle-container">
-                    <a href="https://github.com/Robin-Combeau/hearthdle-project" className="circle-link">
-                        <img className="footer-logo" src="../icons/github.svg" alt="Github" />
+                    <Link to="/patchnotes" className="circle-link">
+                        <img className="footer-logo" src="../icons/list.svg" alt="Patchnotes" />
+                    </Link>
+                </div>
+                <div className="circle-container">
+                    <a href="maybepagekofi" className="circle-link">
+                        <img className="footer-logo" src="../icons/kofi.svg" alt="Kofi" />
                     </a>
                 </div>
                 <div className="circle-container">
-                    <a href="/patchnotes" className="circle-link">
-                        <img className="footer-logo" src="../icons/github.svg" alt="Example" />
+                    <a href="https://github.com/Robin-Combeau/hearthdle-project" className="circle-link">
+                        <img className="footer-logo" src="../icons/github.svg" alt="Github" />
                     </a>
                 </div>
             </div>
