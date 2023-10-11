@@ -8,17 +8,17 @@ export default function Footer() {
         <div className="footer">
             <div>
                 <div className="circle-container">
-                    <Link to="/patchnotes" className="circle-link">
+                    <Link to="/patchnotes" className="circle-link scale">
                         <img className="footer-logo" src="../icons/list.svg" alt="Patchnotes" />
                     </Link>
                 </div>
                 <div className="circle-container">
-                    <a href="maybepagekofi" className="circle-link">
+                    <a href="maybepagekofi" className="circle-link scale">
                         <img className="footer-logo" src="../icons/kofi.svg" alt="Kofi" />
                     </a>
                 </div>
                 <div className="circle-container">
-                    <a href="https://github.com/Robin-Combeau/hearthdle-project" className="circle-link">
+                    <a href="https://github.com/Robin-Combeau/hearthdle-project" className="circle-link scale">
                         <img className="footer-logo" src="../icons/github.svg" alt="Github" />
                     </a>
                 </div>
