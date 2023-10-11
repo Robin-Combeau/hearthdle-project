@@ -126,7 +126,7 @@ button {
 
 /* Main page title */
 .title {
-    font-family: Belwe Bd BT;
+    font-family: Belwe;
     margin-top: 5vh;
     margin-bottom: 1vh;
     color: #FFE164;
@@ -159,7 +159,7 @@ button {
 /* Hearthdle title on every page */
 .page-title {
     position: relative;
-    font-family: Belwe Bd BT;
+    font-family: Belwe;
     margin-top: -20px;
     margin-bottom: 1vh;
     color: #FFE164;
@@ -183,7 +183,7 @@ button {
 /* Main page subtitle */
 .subtitle {
     margin: 0;
-    font-family: Belwe Bd BT;
+    font-family: Belwe;
     color: #FBDFB2;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 1.8rem;
@@ -202,7 +202,7 @@ button {
 
 /* Page title */
 .page-subtitle {
-    font-family: Belwe Bd BT;
+    font-family: Belwe;
     color: #FBDFB2;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 3.2rem;
@@ -222,7 +222,7 @@ button {
 }
 
 .play-button {
-    font-family: Belwe Bd BT;
+    font-family: Belwe;
     color: #FFE164;
     font-size: 2.2rem;
     border: 3px solid #FFE164;
@@ -248,7 +248,7 @@ button {
 
 /* Go back button */
 .medium-button {
-    font-family: Belwe Bd BT;
+    font-family: Belwe;
     color: #000;
     font-size: 1.8rem;
     background: #FBDFB2;
@@ -447,7 +447,7 @@ button {
 /* Game */
 .gamemode-title {
     position: relative;
-    font-family: Belwe Bd BT;
+    font-family: Belwe;
     margin-top: -32px;
     margin-bottom: 1vh;
     color: #FFE164;
