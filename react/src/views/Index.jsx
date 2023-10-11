@@ -6,7 +6,7 @@ export default function Index() {
     return (
         <>
             <div className="main page">
-                <img className="hearthdle-logo-main" src="../images/logos/hearthdle_logo.png" alt="Hearthdle Logo" />
+                <img className="hearthdle-logo-main" src="../images/logos/hearthdle_logo.webp" alt="Hearthdle Logo" />
                 <h1 className="title" data-text="Hearthdle">Hearthdle</h1>
                 <h2 className="subtitle" data-text="Guess Hearthstone cards">Guess Hearthstone cards</h2>
                 <div>

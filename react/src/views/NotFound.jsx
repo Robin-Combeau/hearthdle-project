@@ -8,7 +8,7 @@ export default function NotFound() {
             <div className="page">
                 <PageMainTitle />
                 <PageTitle text="404 - Page not found" />
-                <Link to="/"><img src='/images/cards/404/lost.png' className="scale" alt='404 Image' /></Link>
+                <Link to="/"><img src='/images/cards/404/lost.webp' className="scale" alt='404 Image' /></Link>
             </div>
         </>
     )

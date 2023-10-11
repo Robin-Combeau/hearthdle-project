@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function PageMainTitle({ title = "Hearthdle", link = "/", image = "/images/logos/hearthdle_logo.png" }) {
+export default function PageMainTitle({ title = "Hearthdle", link = "/", image = "/images/logos/hearthdle_logo.webp" }) {
     return (
         <div className="app-title">
-            {/* //src="../images/logos/hearthdle_logo.png */}
+            {/* //src="../images/logos/hearthdle_logo.webp */}
             <Link to={link}>
                 <img className="hearthdle-logo-page" src={image} alt="Hearthdle Logo" />
             </Link>

@@ -6,7 +6,7 @@ export default function CardImage({ imageUrl, altText, imageLoaded = true }) {
             {imageLoaded ? (
                 <img className="card-to-guess" src={imageUrl} alt={altText} />
             ) : (
-                <img className="card-to-guess" width="375px" height="517px" src="/images/cards/loading.png" alt="Loading Image" />
+                <img className="card-to-guess" width="375px" height="517px" src="/images/cards/loading.webp" alt="Loading Image" />
             )}
         </div>
     );

@@ -83,7 +83,7 @@ export default function Standard() {
       <div className="card-and-infos">
         <CardImage imageUrl={cardImage} altText="Card to Guess" imageLoaded={imageLoaded} />
         <div className="game-infos">
-          <GamemodeTitle title="Standard" image="/images/logos/gamemodes/standard.png" />
+          <GamemodeTitle title="Standard" image="/images/logos/gamemodes/standard.webp" />
           <div className="text-bubble text-bubble-side">
             <p>Attempts</p>
             <div className="tentatives">{tentatives}</div>
@@ -107,7 +107,7 @@ export default function Standard() {
       </div>
 
       <div className="text-bubble text-bubble-small">
-            <p>XX people already found out</p>
+        <p>XX people already found out</p>
       </div>
       {/* <div>{rightGuess.toString()}</div> */}
 

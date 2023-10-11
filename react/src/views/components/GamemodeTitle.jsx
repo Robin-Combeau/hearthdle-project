@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function GamemodeTitle({ title = "Gamemode", image = "/images/logos/hearthdle_logo.png" }) {
+export default function GamemodeTitle({ title = "Gamemode", image = "/images/logos/hearthdle_logo.webp" }) {
     return (
         <div className="gamemode-div">
             <img className="hearthdle-logo-page" src={image} alt="Gamemode Logo" />
