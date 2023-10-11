@@ -8,6 +8,7 @@ import Standard from './views/gamemodes/Standard';
 import About from './views/About';
 import Faq from './views/Faq';
 import Gamemodes from './views/Gamemodes';
+import Patchnotes from './views/Patchnotes';
 
 export default function MainRoutes() {
   return (
@@ -17,6 +18,7 @@ export default function MainRoutes() {
       <Route path="/about" element={<About />} />
       <Route path="/faq" element={<Faq />} />
       <Route path="/gamemodes" element={<Gamemodes />} />
+      <Route path="/patchnotes" element={<Patchnotes />} />
       <Route
         path="gamemode/*"
         element={

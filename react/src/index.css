@@ -32,9 +32,13 @@ a {
 }
 
 p,
-h3{
+h3 {
     margin-block-end: 0em;
     margin-block-start: 0em;
+}
+
+.text-align-left{
+    text-align:left;
 }
 
 button,
@@ -168,7 +172,7 @@ button {
 
 /* Main page subtitle */
 .subtitle {
-    margin:0;
+    margin: 0;
     font-family: Belwe Bd BT;
     color: #FBDFB2;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -301,7 +305,7 @@ button {
 .text-bubble {
     width: 90vw;
     max-width: 550px;
-    padding:1em 1.6em;
+    padding: 1em 1.6em;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.85);
     margin-bottom: 1vh;
@@ -328,39 +332,41 @@ button {
     width: 60%;
     max-width: 220px;
     min-width: 80px;
-    padding:0.6em 1em 0em 1em;
-    margin: 0 auto; /* centers div horizontally */
-    margin-bottom:1vh;
+    padding: 0.6em 1em 0em 1em;
+    margin: 0 auto;
+    /* centers div horizontally */
+    margin-bottom: 1vh;
 }
 
 .text-bubble-side a {
-    color:#FBDFB2;
+    color: #FBDFB2;
     font-style: italic;
     display: inline-block;
     padding: 0.2em 0px;
-    padding-bottom:0.6em;
+    padding-bottom: 0.6em;
 }
 
 .text-bubble-small {
-    width:auto;
-    padding:0.2em 1em;
-    margin: 0 auto; /* centers div horizontally */
-    margin-top:2vh;
-    margin-bottom:1vh;
+    width: auto;
+    padding: 0.2em 1em;
+    margin: 0 auto;
+    /* centers div horizontally */
+    margin-top: 2vh;
+    margin-bottom: 1vh;
 }
 
 .text-bubble-small p {
-    padding-top:0.5em;
-    padding-bottom:0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     margin-block-start: 0em;
     margin-block-end: 0em;
 }
 
 .text-bubble-small a {
-    color:#FBDFB2;
+    color: #FBDFB2;
     font-style: italic;
     display: inline-block;
-    padding-top:0.4em;
+    padding-top: 0.4em;
     padding: 8px 0px;
 }
 
@@ -368,7 +374,7 @@ button {
     font-family: Belwe;
     font-size: 2em;
     padding-bottom: 0.2em;
-    color:#FFE164;
+    color: #FFE164;
 }
 
 
@@ -458,7 +464,7 @@ button {
     text-align: center;
     justify-content: center;
     align-items: center;
-    margin-top:3vh;
+    margin-top: 3vh;
 }
 
 .cardname-input-container input {
@@ -494,7 +500,7 @@ button {
 
 .cardname-dropdown {
     max-height: 150px;
-    max-width:500px;
+    max-width: 500px;
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.85);
 }
@@ -521,7 +527,7 @@ button {
 }
 
 .cardname-dropdown::-webkit-scrollbar-thumb {
-    background:#FBDFB2;
+    background: #FBDFB2;
 }
 
 .cardname-dropdown::-webkit-scrollbar-thumb:hover {
@@ -538,10 +544,10 @@ button {
     margin-top: 4vh;
 }
 
-.game-infos{
-    width:15vw;
-    min-width:200px;
-    max-width:350px;
+.game-infos {
+    width: 15vw;
+    min-width: 200px;
+    max-width: 350px;
 }
 
 @media (max-width: 768px) {
@@ -558,7 +564,7 @@ button {
 }
 
 .footer {
-    padding-top:8vh;
+    padding-top: 8vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -568,6 +574,6 @@ button {
     margin-top: auto;
 }
 
-.footer p{
-    padding:1vh;
+.footer p {
+    padding: 1vh;
 }
