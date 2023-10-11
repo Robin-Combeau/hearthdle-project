@@ -6,7 +6,8 @@
        url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.woff2') format('woff2'),
        url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.woff') format('woff'),
        url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.svg#svgFontName') format('svg');
-}
+    font-display: swap;
+    }
 
 @font-face {
     font-family: Belwe;
@@ -15,7 +16,8 @@
        url('fonts/Belwe/Belwe Bold.woff2') format('woff2'),
        url('fonts/Belwe/Belwe Bold.woff') format('woff'),
        url('fonts/Belwe/Belwe Bold.svg#svgFontName') format('svg');
-}
+    font-display: swap;
+    }
 
 /* Reset default styles for the body */
 body {
