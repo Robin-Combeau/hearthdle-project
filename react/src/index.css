@@ -1,12 +1,20 @@
 /* Fonts */
 @font-face {
     font-family: ITCFranklinGothicMedium;
-    src: url('fonts/ITC Franklin Gothic/ITCFranklinGothicStd-Med.otf');
+    src: url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.ttf');
+    src: url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.eot?#iefix') format('embedded-opentype'),
+       url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.woff2') format('woff2'),
+       url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.woff') format('woff'),
+       url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.svg#svgFontName') format('svg');
 }
 
 @font-face {
     font-family: Belwe;
-    src: url('fonts/Belwe/belwe-bd-bt-bold.ttf');
+    src: url('fonts/Belwe/Belwe Bold.ttf');
+    src: url('fonts/Belwe/Belwe Bold.eot?#iefix') format('embedded-opentype'),
+       url('fonts/Belwe/Belwe Bold.woff2') format('woff2'),
+       url('fonts/Belwe/Belwe Bold.woff') format('woff'),
+       url('fonts/Belwe/Belwe Bold.svg#svgFontName') format('svg');
 }
 
 /* Reset default styles for the body */
