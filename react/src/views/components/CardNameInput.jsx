@@ -33,6 +33,9 @@ export default function CardNameInput({
     };
 
     const handleOptionClick = (name) => {
+        if (name === 'No results found') {
+            return;
+        }
         setSelectedCardName(name);
         setInputValue(name);
         setShowDropdown(false);
@@ -68,7 +71,7 @@ export default function CardNameInput({
                     {filterCardNames().map((name, index) => (
                         <div
                             key={index}
-                            className="cardname-dropdown-option"
+                            className={`cardname-dropdown-option ${name === 'No results found' ? 'no-results-found' : ''}`}
                             onClick={() => handleOptionClick(name)}
                         >
                             {name}

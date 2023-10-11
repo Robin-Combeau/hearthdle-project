@@ -31,7 +31,8 @@ a {
     color: #FFE164;
 }
 
-p {
+p,
+h3{
     margin-block-end: 0em;
     margin-block-start: 0em;
 }
@@ -309,7 +310,7 @@ button {
 .text-bubble h3 {
     font-family: Belwe;
     font-size: 1.6em;
-    margin: 0.5em 1.5em 0.5em 1.5em;
+    margin: 0em 1.5em 0.5em 1.5em;
 }
 
 .text-bubble p {
@@ -493,7 +494,6 @@ button {
 
 .cardname-dropdown {
     max-height: 150px;
-    height: 25vh;
     max-width:500px;
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.85);
@@ -528,6 +528,11 @@ button {
     background: #FFE164;
 }
 
+.cardname-dropdown-option.no-results-found {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 .card-and-infos {
     display: flex;
     margin-top: 4vh;
@@ -559,6 +564,10 @@ button {
     justify-content: center;
     align-items: center;
     color: #FBDFB2;
-    font-size: 0.8em;
+    font-size: 0.85em;
     margin-top: auto;
+}
+
+.footer p{
+    padding:1vh;
 }
