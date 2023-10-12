@@ -70,6 +70,7 @@ input[type="reset"] {
 .background-container {
     position: fixed;
     background-attachment: fixed;
+    display: block;
     top: 0;
     left: 0;
     width: 100%;
@@ -78,7 +79,14 @@ input[type="reset"] {
 
     background-image: url('/images/background/UnitedinStormwind_007.webp');
     background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
+
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    
     background-position: left center;
     background-attachment: fixed;
 }
