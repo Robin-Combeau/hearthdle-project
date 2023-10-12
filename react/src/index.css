@@ -116,6 +116,8 @@ button {
     align-items: center;
     min-height: 100vh;
     flex: 1;
+    width:95vw;
+    margin: 0 auto;
 }
 
 /* Hearthdle logo on main page*/
@@ -397,7 +399,6 @@ button {
     color: #FFE164;
 }
 
-
 /* Gamemodes page */
 .gamemode-buttons-container {
     display: flex;
@@ -502,7 +503,7 @@ button {
 
 .cardname-input-container button {
     height: 46px;
-    width: 80px;
+    width: 60px;
     line-height: 1em;
     background-color: rgba(0, 0, 0, 0.85);
     color: #FFE164;
@@ -511,6 +512,10 @@ button {
     border-radius: 0;
     vertical-align: middle;
     transition: all 0.3s;
+}
+
+.submit-icon{
+    vertical-align: middle;
 }
 
 .cardname-input-container button:hover,
@@ -581,6 +586,22 @@ button {
         width: 100%;
         max-width: none;
     }
+}
+
+.card-image-container {
+    width: 300px;
+    height: 0;
+    padding-top: 135.47%; /* Aspect ratio (517 / 375 * 100%) */
+    position: relative;
+}
+
+.card-to-guess {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .footer {
