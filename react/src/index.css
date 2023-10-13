@@ -325,12 +325,13 @@ button {
 
 /* About & FAQ */
 .text-bubble {
-    width: 90vw;
+    width: 80vw;
+    margin: 1vh 2vw 1vh 2vw;
     max-width: 550px;
     padding: 1em 1.6em;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.85);
-    margin-bottom: 1vh;
+    /* margin-bottom: 1vh; */
 }
 
 .text-bubble h3 {
