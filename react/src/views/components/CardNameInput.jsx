@@ -18,7 +18,7 @@ export default function CardNameInput({
         const filteredNames = allCardNames.filter((name) =>
             name.toLowerCase().includes(inputValueLowerCase)
         );
-        return filteredNames.length > 0 ? filteredNames : ['No results found'];
+        return filteredNames.length > 0 ? filteredNames : ['No cards found'];
     };
 
     const handleInputChange = (e) => {
@@ -33,7 +33,7 @@ export default function CardNameInput({
     };
 
     const handleOptionClick = (name) => {
-        if (name === 'No results found') {
+        if (name === 'No cards found') {
             return;
         }
         setSelectedCardName(name);
@@ -71,7 +71,7 @@ export default function CardNameInput({
                     {filterCardNames().map((name, index) => (
                         <div
                             key={index}
-                            className={`cardname-dropdown-option ${name === 'No results found' ? 'no-results-found' : ''}`}
+                            className={`cardname-dropdown-option ${name === 'No cards found' ? 'no-results-found' : ''}`}
                             onClick={() => handleOptionClick(name)}
                         >
                             {name}
