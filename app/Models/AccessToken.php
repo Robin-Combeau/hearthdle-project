@@ -52,4 +52,10 @@ class AccessToken extends Model
             return ApiResponse::error($newToken['message']);
         }
     }
+
+    public function getBlizzardToken()
+    {
+        return AccessToken::where('name', 'blizzard_api')->first();
+    }
+
 }

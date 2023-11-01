@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\SetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CardController;
 use App\Models\Card;
 use App\Models\GamemodeDaily;
 use App\Http\Controllers\ExternalApiController;
+
+
+use App\Http\Controllers\BlizzardApiController;
+use App\Models\AccessToken;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +30,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('card', CardController::class);
 
 Route::prefix('blizzard')->group(function () {
-    Route::get('/addAllCardsFromBlizzardApi', [CardController::class, 'addAllCardsFromBlizzardApi']);
-    Route::get('/getAllCardsFromApi', [ExternalApiController::class, 'getAllCardsFromBlizzardApi']);
+
+    Route::post('/getAllCardsFromApi', [ExternalApiController::class, 'getAllCardsFromBlizzardApi']);
 });;
+
+
 
 // Cards
 Route::resource('card', CardController::class);
@@ -35,9 +42,14 @@ Route::get('/getCardImageWithoutName/{id}', [CardController::class, 'getCardImag
 Route::get('/getRandomCard' , [CardController::class, 'getRandomCard']);
 Route::get('/getAllCardNames' , [CardController::class, 'getAllCardNames']);
 
-// Daily
-Route::prefix('gamemode')->group(function () {
-    Route::prefix('daily')->group(function () {
-        Route::get('/getLatestDailyCard', [GamemodeDaily::class, 'getLatestDailyCard']);
-    });;
-});;
+
+
+// Data From Api
+Route::get('/blizzard/token/new', [BlizzardApiController::class, 'getNewToken']);
+Route::get('/blizzard/token/store', [AccessToken::class, 'saveOrUpdateBlizzardToken']);
+Route::get('/blizzard/cards/getAll', [BlizzardApiController::class, 'getAllCards']);
+Route::get('/blizzard/cards/storeAllInJson', [BlizzardApiController::class, 'storeAllCardsInJson']);
+Route::get('/blizzard/cards/updateAll', [CardController::class, 'updateAllCards']);
+Route::get('/blizzard/sets/getAll', [BlizzardApiController::class, 'getAllSets']);
+Route::get('/blizzard/sets/storeAllInJson', [BlizzardApiController::class, 'storeAllSetsInJson']);
+Route::get('/blizzard/sets/updateAll', [SetController::class, 'updateAllSets']);

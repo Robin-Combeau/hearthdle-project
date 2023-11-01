@@ -2,11 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Responses\ApiResponse;
 use App\Models\Card;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class CardController extends Controller
 {
+
+    /**
+     * Values from Blizzard => Values from database
+     */
+    public $propertyMapping = [
+        'id' => 'cardId',
+        'collectible' => 'collectible',
+        'slug' => 'slug',
+        'classId' => 'classId',
+        'multiclassIds' => 'multiclassIds',
+        'minionTypeId' => 'minionTypeId',
+        'spellSchoolIds' => 'spellSchoolIds',
+        'cardTypeId' => 'cardTypeId',
+        'cardSetId' => 'cardSetId',
+        'rarityId' => 'rarityId',
+        'artistName' => 'artistName',
+        'health' => 'health',
+        'attack' => 'attack',
+        'armor' => 'armor',
+        'manaCost' => 'manaCost',
+        'durability' => 'durability',
+        'name' => 'name',
+        'text' => 'text',
+        'image' => 'image',
+        'imageGold' => 'imageGold',
+        'flavorText' => 'flavorText',
+        'cropImage' => 'cropImage',
+        'runeCost' => 'runeCost'
+    ];
+
     /**
      * Display a listing of the resource.
      */
@@ -16,33 +48,9 @@ class CardController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Card $card)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Card $card)
     {
         //
     }
@@ -63,67 +71,48 @@ class CardController extends Controller
         //
     }
 
-
     /**
-     * Add all cards from Blizzard API
+     * Update all cards from Blizzard API
+     * Called in a cron
      */
-    public function addAllCardsFromBlizzardApi()
+    public function updateAllCards()
     {
-        // Big exec
-        ini_set('max_execution_time', 300);
-        $allCardsFromApi = ExternalApiController::getAllCardsFromBlizzardApi();
+        $jsonFilePath = storage_path('app/hearthstone_cards.json');
+        $jsonData = File::get($jsonFilePath);
+        $jsonData = json_decode($jsonData, true);
 
-        // Values from Blizzard => Values from my database
-        $propertyMapping = [
-            'id' => 'cardId',
-            'collectible' => 'collectible',
-            'slug' => 'slug',
-            'classId' => 'classId',
-            'multiclassIds' => 'multiclassIds',
-            'minionTypeId' => 'minionTypeId',
-            'spellSchoolIds' => 'spellSchoolIds',
-            'cardTypeId' => 'cardTypeId',
-            'cardSetId' => 'cardSetId',
-            'rarityId' => 'rarityId',
-            'artistName' => 'artistName',
-            'health' => 'health',
-            'attack' => 'attack',
-            'armor' => 'armor',
-            'manaCost' => 'manaCost',
-            'durability' => 'durability',
-            'name' => 'name',
-            'text' => 'text',
-            'image' => 'image',
-            'imageGold' => 'imageGold',
-            'flavorText' => 'flavorText',
-            'cropImage' => 'cropImage',
-            'runeCost' => 'runeCost'
-        ];
+        try {
+            foreach ($jsonData['original']['data'] as $jsonCard) {
+                // Mapping
+                $dataToStore = [];
+                foreach ($this->propertyMapping as $jsonKey => $dbField) {
+                    if (isset($jsonCard[$jsonKey])) {
+                        if ($dbField === 'multiclassIds' || $dbField === 'runeCost') {
+                            // Convert array to JSON string
+                            $dataToStore[$dbField] = json_encode($jsonCard[$jsonKey]);
+                        } else {
+                            $dataToStore[$dbField] = $jsonCard[$jsonKey];
+                        }
+                    }
+                }
 
-        foreach($allCardsFromApi as $cardFromApi){
-            $card = new Card;
-            foreach ($propertyMapping as $apiKey => $modelProperty) {
-                if ($apiKey === 'runeCost' && isset($cardFromApi[$apiKey])) {
-                    $card->$modelProperty = implode(',', $cardFromApi[$apiKey]);
-                } elseif (isset($cardFromApi[$apiKey])) {
-                    $card->$modelProperty = $cardFromApi[$apiKey];
+                // Duplicate ?
+                $existingCard = Card::where('cardId', $dataToStore['cardId'])->first();
+
+                if ($existingCard) {
+                    $existingCard->update($dataToStore);
                 } else {
-                    $card->$modelProperty = null;
+                    Card::create($dataToStore);
                 }
             }
-            $cardInDatabase = Card::findbyCardId($card->cardId);
-            if ($cardInDatabase instanceOf Card){
-                $cardInDatabase->update($card->toArray());
-            }
-            else{
-                $card->save();
-            }
-
+            return ApiResponse::success(null, 'All cards have been updated in database');
+        } catch (\Exception $e) {
+            return ApiResponse::error('Failed to update all cards');
         }
-        return 'Cards saved successfully';
     }
 
-    public static function getCardImageWithoutName($id){
+    public static function getCardImageWithoutName($id)
+    {
         $card = Card::findByCardId($id);
         //$card = Card::getRandomCard();
         if ($card) {
@@ -132,26 +121,24 @@ class CardController extends Controller
             $dest_image = imagecreatetruecolor(WIDTH, HEIGHT);
             // transparency 
             imagesavealpha($dest_image, true);
-    
+
             // create a fully transparent background
             $trans_background = imagecolorallocatealpha($dest_image, 0, 0, 0, 127);
-    
+
             // fill the image with a transparent background
             imagefill($dest_image, 0, 0, $trans_background);
-    
+
             // fill the image with a transparent background
             $cardImage = imagecreatefrompng($card->image);
-            if(imagesx($cardImage) == 404){
+            if (imagesx($cardImage) == 404) {
                 $cardImage = imagecrop($cardImage, ['x' => 15, 'y' => -1, 'width' => 375, 'height' => 518]);
-            }
-            else if (imagesx($cardImage) == 375){
+            } else if (imagesx($cardImage) == 375) {
                 $cardImage = imagecrop($cardImage, ['x' => 0, 'y' => 0, 'width' => 375, 'height' => 518]);
-            }
-            else{
+            } else {
                 return 'Image size not managed';
             }
             $coverImage = imagecreatefrompng(self::getCardNameCover($card->id));
-    
+
             // copy each png file on top of the destination png
             imagecopy($dest_image, $cardImage, 0, 0, 0, 0, WIDTH, HEIGHT);
             imagecopy($dest_image, $coverImage, 0, 0, 0, 0, WIDTH, HEIGHT);
@@ -161,16 +148,16 @@ class CardController extends Controller
             ob_end_clean();
             imagedestroy($dest_image);
             return response($buffer, 200)->header('Content-type', 'image/png');
-        }
-        else{
+        } else {
             return 'Card not found';
         }
-            }
+    }
 
 
-    public static function getCardNameCover($id){
+    public static function getCardNameCover($id)
+    {
         $card = Card::find($id);
-        if ($card){
+        if ($card) {
             switch ($card->cardTypeId) {
                 case 3:
                     return 'C:\Users\robin\Documents\Code\hearthdle\images\ribbons\hero.png';
@@ -189,23 +176,21 @@ class CardController extends Controller
         return 'Card not found';
     }
 
-    public static function getCard($id){
+    public static function getCard($id)
+    {
         $card = Card::findByCardId($id);
         return $card;
     }
 
-    public static function getRandomCard(){
+    public static function getRandomCard()
+    {
         $card = Card::select('*')->inRandomOrder()->get()->first();
         return $card;
     }
 
-    public static function getAllCardNames(){
+    public static function getAllCardNames()
+    {
         $cardNames = Card::select('name')->get();
         return $cardNames;
-    }
-
-    public static function getDailyCard(){
-        $card = Card::findByCardId($id);
-        return $card;
     }
 }
