@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gamemode_daily', function (Blueprint $table) {
+        Schema::create('set_groups', function (Blueprint $table) {
             $table->id();
-            $table->integer('card_id');
             $table->timestamps();
         });
     }
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gamemode_daily');
+        Schema::dropIfExists('set_groups');
     }
 };
