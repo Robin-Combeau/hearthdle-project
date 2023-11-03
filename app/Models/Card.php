@@ -53,12 +53,12 @@ class Card extends Model
         return Card::select('name')->get();
     }
 
-    public static function getStandardCard()
+    public static function getCardInGamemode(string $gamemode)
     {
-        $standardSetGroup = SetGroup::where('slug', 'standard')->first();
-        $standardSetArray = json_decode($standardSetGroup['cardSets'], true);
-        $standardSetIds = Set::whereIn('slug', $standardSetArray)->pluck('id')->toArray();
-        return Card::whereIn('cardSetId', $standardSetIds)->inRandomOrder()->first();
+        $setGroup = SetGroup::where('slug', $gamemode)->first();
+        $setArray = json_decode($setGroup['cardSets'], true);
+        $setIds = Set::whereIn('slug', $setArray)->pluck('setId')->toArray();
+        return Card::whereIn('cardSetId', $setIds)->inRandomOrder()->first();
     }
 
 

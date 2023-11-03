@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SetController;
 use App\Http\Controllers\SetGroupController;
+use App\Models\GamemodeCard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CardController;
@@ -59,4 +60,6 @@ Route::get('/blizzard/setGroups/storeAllInJson', [BlizzardApiController::class, 
 Route::get('/blizzard/setGroups/updateAll', [SetGroupController::class, 'updateAllSetGroups']);
 
 
-Route::get('/card/standard/get', [Card::class, 'getStandardCard']);
+Route::get('/card/{gamemode}/get', [Card::class, 'getCardInGamemode']);
+
+Route::get('/gamemode/card/new/{gamemode}', [GamemodeCard::class, 'storeNewCard']);
