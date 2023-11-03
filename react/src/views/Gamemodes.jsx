@@ -27,13 +27,13 @@ export default function Gamemodes() {
                     <button className="gamemode-bubble scale" onClick={() => navigate('/gamemode/classic')}>
                         <img src="/images/logos/gamemodes/classic.webp" />
                         <h3 data-text="Classic">Classic</h3>
-                        <p>Only cards from the original release.</p>
+                        <p>Only cards from year 1 and 2 of Hearthstone.</p>
                     </button>
-                    <button className="gamemode-bubble scale" onClick={() => navigate('/gamemode/twist')}>
+                    {/* <button className="gamemode-bubble scale" onClick={() => navigate('/gamemode/twist')}>
                         <img src="/images/logos/gamemodes/twist.webp" />
                         <h3 data-text="Twist">Twist</h3>
                         <p>Only cards in the twist fomat.</p>
-                    </button>
+                    </button> */}
                 </div>
                 <Footer />
             </div>
