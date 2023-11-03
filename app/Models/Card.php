@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Responses\ApiResponse;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,12 +35,14 @@ class Card extends Model
         'cropImage',
         'runeCost'
     ];
-    
-    public static function findbyCardId($cardId){
+
+    public static function findbyCardId($cardId)
+    {
         return Card::where('cardId', $cardId)->first();
     }
 
-    public static function getRandomCard(){
+    public static function getRandomCard()
+    {
         return Card::inRandomOrder()->first();
     }
 
@@ -62,5 +65,19 @@ class Card extends Model
     }
 
 
-
+    /**
+     * Returns the latest card selected for the gamemode
+     */
+    public static function getLatestGamemodeCard(string $gamemode)
+    {
+        try {
+            $data = GamemodeCard::where('gamemode', $gamemode)
+                ->orderBy('created_at', 'desc')
+                ->first();
+            $card = Card::where('cardId', $data->cardId)->first();
+            return ApiResponse::success($card, 'Latest GamemodeCard fetched');
+        } catch (\Exception $e) {
+            return ApiResponse::error('Error fetching latest GamemodeCard');
+        }
+    }
 }

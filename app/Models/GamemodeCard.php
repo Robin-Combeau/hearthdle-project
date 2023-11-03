@@ -19,20 +19,9 @@ class GamemodeCard extends Model
     ];
 
     /**
-     * Returns the latest card selected for the gamemode
-     */
-    public static function getLatestCardForGamemode(string $gamemode)
-    {
-        return GamemodeCard::where('gamemode', $gamemode)
-            ->orderBy('created_at', 'desc')
-            ->first();
-        ;
-    }
-
-    /**
      * Sets a new daily card
      */
-    public static function storeNewCard(string $gamemode)
+    public static function storeNewGamemodeCard(string $gamemode)
     {
         switch ($gamemode) {
             case 'standard':
@@ -54,7 +43,7 @@ class GamemodeCard extends Model
             ->orderBy('created_at')
             ->first();
         if ($latestDuplicateCard && $latestDuplicateCard['created_at'] > Carbon::now()->subMonth()) {
-            GamemodeCard::storeNewCard($gamemode);
+            GamemodeCard::storeNewGamemodeCard($gamemode);
         }
         // Error if we already have a card in the last 23 hours with the same gamemode
         $latestGamemodeCard = GamemodeCard::where('gamemode', $gamemode)
@@ -73,11 +62,11 @@ class GamemodeCard extends Model
     }
 
 
-    public static function storeNewCardForAllGamemodes(string $gamemode)
+    public static function storeNewGamemodeCardForAllGamemodes(string $gamemode)
     {
-        GamemodeCard::storeNewCard('standard');
-        GamemodeCard::storeNewCard('wild');
-        GamemodeCard::storeNewCard('classic');
+        GamemodeCard::storeNewGamemodeCard('standard');
+        GamemodeCard::storeNewGamemodeCard('wild');
+        GamemodeCard::storeNewGamemodeCard('classic');
         return ApiResponse::success(null, 'All new cards for gamemodes have been set');
     }
 

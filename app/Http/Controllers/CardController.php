@@ -111,9 +111,9 @@ class CardController extends Controller
         }
     }
 
-    public static function getCardImageWithoutName($id)
+    public static function getCardImageWithoutName($cardId)
     {
-        $card = Card::findByCardId($id);
+        $card = Card::findByCardId($cardId);
         //$card = Card::getRandomCard();
         if ($card) {
             define("WIDTH", 375);

@@ -25,9 +25,9 @@ export default function Standard() {
   useEffect(() => {
     setImageLoaded(false);
     // Fetch random card data
-    axios.get("http://127.0.0.1:8000/api/gamemode/daily/getLatestDailyCard", { headers })
+    axios.get("http://127.0.0.1:8000/api/gamemode/card/get/standard", { headers })
       .then((response1) => {
-        const cardData = response1.data;
+        const cardData = response1.data.data;
         console.log(cardData);
         setCard(cardData);
 

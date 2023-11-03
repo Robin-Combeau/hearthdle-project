@@ -24,7 +24,8 @@ export default function MainRoutes() {
         element={
           <Routes>
             <Route path="/standard" element={<Standard />} />
-            <Route path="/infinite" element={<Infinite />} />
+            {/* <Route path="/wild" element={<Wild />} /> */}
+            {/* <Route path="/classic" element={<Classic />} /> */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         }

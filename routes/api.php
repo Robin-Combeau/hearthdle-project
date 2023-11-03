@@ -31,16 +31,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('card', CardController::class);
 
-Route::prefix('blizzard')->group(function () {
-
-    Route::post('/getAllCardsFromApi', [ExternalApiController::class, 'getAllCardsFromBlizzardApi']);
-});;
-
-
-
 // Cards
 Route::resource('card', CardController::class);
-Route::get('/getCardImageWithoutName/{id}', [CardController::class, 'getCardImageWithoutName']);
+Route::get('/getCardImageWithoutName/{cardId}', [CardController::class, 'getCardImageWithoutName']);
 Route::get('/getRandomCard' , [Card::class, 'getRandomCard']);
 Route::get('/getAllCardNames' , [Card::class, 'getAllCardNames']);
 
@@ -62,4 +55,5 @@ Route::get('/blizzard/setGroups/updateAll', [SetGroupController::class, 'updateA
 
 Route::get('/card/{gamemode}/get', [Card::class, 'getCardInGamemode']);
 
-Route::get('/gamemode/card/new/{gamemode}', [GamemodeCard::class, 'storeNewCard']);
+Route::get('/gamemode/card/store/{gamemode}', [GamemodeCard::class, 'storeNewGamemodeCard']);
+Route::get('/gamemode/card/get/{gamemode}', [Card::class, 'getLatestGamemodeCard']);
