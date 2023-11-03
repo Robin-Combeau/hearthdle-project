@@ -9,6 +9,8 @@ import About from './views/About';
 import Faq from './views/Faq';
 import Gamemodes from './views/Gamemodes';
 import Patchnotes from './views/Patchnotes';
+import Wild from './views/gamemodes/Wild';
+import Classic from './views/gamemodes/Classic';
 
 export default function MainRoutes() {
   return (
@@ -24,8 +26,8 @@ export default function MainRoutes() {
         element={
           <Routes>
             <Route path="/standard" element={<Standard />} />
-            {/* <Route path="/wild" element={<Wild />} /> */}
-            {/* <Route path="/classic" element={<Classic />} /> */}
+            <Route path="/wild" element={<Wild />} />
+            <Route path="/classic" element={<Classic />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         }
