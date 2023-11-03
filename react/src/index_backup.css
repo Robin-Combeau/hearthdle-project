@@ -1,0 +1,625 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonts */
+@font-face {
+    font-family: ITCFranklinGothicMedium;
+    src: url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.ttf');
+    src: url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.eot?#iefix') format('embedded-opentype'),
+       url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.woff2') format('woff2'),
+       url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.woff') format('woff'),
+       url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.svg#svgFontName') format('svg');
+    font-display: swap;
+    }
+
+@font-face {
+    font-family: Belwe;
+    src: url('fonts/Belwe/Belwe Bold.ttf');
+    src: url('fonts/Belwe/Belwe Bold.eot?#iefix') format('embedded-opentype'),
+       url('fonts/Belwe/Belwe Bold.woff2') format('woff2'),
+       url('fonts/Belwe/Belwe Bold.woff') format('woff'),
+       url('fonts/Belwe/Belwe Bold.svg#svgFontName') format('svg');
+    font-display: swap;
+    }
+
+/* Reset default styles for the body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: ITCFranklinGothicMedium;
+    color: #FBDFB2;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #FFE164;
+}
+
+p,
+h3 {
+    margin-block-end: 0em;
+    margin-block-start: 0em;
+}
+
+.text-align-left{
+    text-align:left;
+}
+
+button,
+input {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+    cursor: pointer;
+}
+
+.background-container {
+    position: fixed;
+    background-attachment: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -10;
+
+    background-image: url('/images/background/UnitedinStormwind_007.webp');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    
+    background-position: left center;
+    background-attachment: fixed;
+}
+
+/* For the white filter */
+.background-filter::before {
+    position: absolute;
+    background-attachment: fixed;
+    z-index: -10;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.09);
+    pointer-events: none;
+}
+
+button {
+    border-radius: 10px;
+    box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.25);
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    flex: 1;
+    width:95vw;
+    margin: 0 auto;
+}
+
+/* Hearthdle logo on main page*/
+.hearthdle-logo-main {
+    width: 10vw;
+    min-width: 110px;
+    max-width: 160px;
+    height: auto;
+    margin-top: 5vh;
+}
+
+/* Hearthdle logo on every page */
+.hearthdle-logo-page {
+    width: 80px;
+    height: auto;
+    z-index: -2;
+}
+
+/* Main page title */
+.title {
+    font-family: Belwe;
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+    color: #FFE164;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 3.2rem;
+    letter-spacing: 0.03em;
+    paint-order: stroke fill;
+}
+
+.title:before {
+    content: attr(data-text);
+    position: absolute;
+    color: #FFE164;
+    -webkit-text-stroke: 14px black;
+    font-size: 3.2rem;
+    z-index: -1;
+}
+
+/* Hearthdle title on every page */
+.app-title {
+    transition: all 0.3s;
+    margin-top: 2vh;
+}
+
+.app-title:hover,
+.app-title:focus {
+    transform: scale(1.05);
+}
+
+/* Hearthdle title on every page */
+.page-title {
+    position: relative;
+    font-family: Belwe;
+    margin-top: -20px;
+    margin-bottom: 1vh;
+    color: #FFE164;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 1.7rem;
+    letter-spacing: 0.03em;
+    paint-order: stroke fill;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.page-title:before {
+    content: attr(data-text);
+    position: absolute;
+    color: #FFE164;
+    -webkit-text-stroke: 7px black;
+    font-size: 1.7rem;
+    z-index: -1;
+}
+
+/* Main page subtitle */
+.subtitle {
+    margin: 0;
+    font-family: Belwe;
+    color: #FBDFB2;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 1.8rem;
+    letter-spacing: 0.02em;
+    paint-order: stroke fill;
+}
+
+.subtitle:before {
+    content: attr(data-text);
+    position: absolute;
+    color: #FBDFB2;
+    -webkit-text-stroke: 6px black;
+    font-size: 1.8rem;
+    z-index: -1;
+}
+
+/* Page title */
+.page-subtitle {
+    font-family: Belwe;
+    color: #FBDFB2;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 3.2rem;
+    letter-spacing: 0.02em;
+    paint-order: stroke fill;
+    margin-top: 4vh;
+    margin-bottom: 3vh;
+}
+
+.page-subtitle:before {
+    content: attr(data-text);
+    position: absolute;
+    color: #FBDFB2;
+    -webkit-text-stroke: 10px black;
+    font-size: 3.2rem;
+    z-index: -1;
+}
+
+.play-button {
+    font-family: Belwe;
+    color: #FFE164;
+    font-size: 2.2rem;
+    border: 3px solid #FFE164;
+    margin-top: 8vh;
+    background: #000;
+    box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.25);
+    padding: 0.3em 3em;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+    padding: 0.6em 3.4em;
+}
+
+.play-button:hover,
+.play-button:focus {
+    border: 3px solid #FBDFB2;
+    background: #18160a;
+    color: #FBDFB2;
+    transition: all 0.3s;
+    box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Go back button */
+.medium-button {
+    font-family: Belwe;
+    color: #000;
+    font-size: 1.8rem;
+    background: #FBDFB2;
+    box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.25);
+    padding: 0.2em 1em;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+}
+
+.medium-button:hover,
+.medium-button:focus {
+    background: #c9b38e;
+    box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.4);
+}
+
+.medium-buttons-main {
+    margin-top: 1.6em;
+}
+
+.medium-button-main {
+    padding: 0.3em 0.2em;
+    width: 4.8em;
+    margin-right: 0.75em;
+    margin-left: 0.75em;
+}
+
+.medium-button-margin-top {
+    margin-top: 5vh;
+}
+
+/* Footer circle links */
+.circle-container {
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+.circle-link {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    text-align: center;
+    line-height: 40px;
+    background-color: #FBDFB2;
+}
+
+.circle-link img {
+    width: 60%;
+    height: 100%;
+}
+
+.circle-link:hover,
+.circle-link:focus {
+    background: #c9b38e;
+    transition: all 0.3s;
+    box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.4);
+}
+
+/* About & FAQ */
+.text-bubble {
+    width: 80vw;
+    margin: 1vh 2vw 1vh 2vw;
+    max-width: 550px;
+    padding: 1em 1.6em;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.85);
+    /* margin-bottom: 1vh; */
+}
+
+.text-bubble h3 {
+    font-family: Belwe;
+    font-size: 1.6em;
+    margin: 0em 1.5em 0.5em 1.5em;
+}
+
+.text-bubble p {
+    font-size: 1.25em;
+    line-height: 1.15em;
+}
+
+.text-bubble a {
+    font-size: 1.25em;
+    line-height: 1.15em;
+    letter-spacing: 0.03em;
+}
+
+.text-bubble-side {
+    width: 60%;
+    max-width: 220px;
+    min-width: 80px;
+    padding: 0.6em 1em 0em 1em;
+    margin: 0 auto;
+    /* centers div horizontally */
+    margin-bottom: 1vh;
+}
+
+.text-bubble-side a {
+    color: #FBDFB2;
+    font-style: italic;
+    display: inline-block;
+    padding: 0.2em 0px;
+    padding-bottom: 0.6em;
+}
+
+.text-bubble-small {
+    width: auto;
+    padding: 0.2em 1em;
+    margin: 0 auto;
+    /* centers div horizontally */
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+}
+
+.text-bubble-small p {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+.text-bubble-small a {
+    color: #FBDFB2;
+    font-style: italic;
+    display: inline-block;
+    padding-top: 0.4em;
+    padding: 8px 0px;
+}
+
+.tentatives {
+    font-family: Belwe;
+    font-size: 2em;
+    padding-bottom: 0.2em;
+    color: #FFE164;
+}
+
+/* Gamemodes page */
+.gamemode-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gamemode-bubble {
+    width: 80vw;
+    max-width: 280px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.85);
+    margin: 1.5em 1.5em;
+    z-index: 1;
+}
+
+.scale {
+    transition: all 0.3s;
+}
+
+.scale:hover,
+.scale:focus {
+    transform: scale(1.05);
+}
+
+.gamemode-bubble h3 {
+    font-family: Belwe;
+    color: #FFE164;
+    font-size: 2.2em;
+    position: relative;
+    margin: 0.5em 0em;
+    margin-top: -1em;
+    z-index: 1;
+}
+
+.gamemode-bubble h3:before {
+    content: attr(data-text);
+    position: relative;
+    position: absolute;
+    -webkit-text-stroke: 8px black;
+    z-index: -1;
+}
+
+.gamemode-bubble img {
+    position: relative;
+    margin-top: 0.8em;
+}
+
+.gamemode-bubble p {
+    color: #FBDFB2;
+    font-size: 1.25em;
+    line-height: 1.15em;
+    margin: 0.5em 1.5em 1em 1.5em;
+}
+
+/* Game */
+.gamemode-title {
+    position: relative;
+    font-family: Belwe;
+    margin-top: -32px;
+    margin-bottom: 1vh;
+    color: #FFE164;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 1.7rem;
+    letter-spacing: 0.03em;
+    paint-order: stroke fill;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.gamemode-title:before {
+    content: attr(data-text);
+    position: absolute;
+    color: #FFE164;
+    -webkit-text-stroke: 7px black;
+    font-size: 1.7rem;
+    z-index: -1;
+}
+
+.cardname-input-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vh;
+}
+
+.cardname-input-container input {
+    width: 80vw;
+    max-width: 300px;
+    height: 46px;
+    font-family: Belwe;
+    font-size: 1.5em;
+    padding: 0em 0.5em;
+    color: #FFE164;
+    background-color: rgba(0, 0, 0, 0.85);
+    vertical-align: middle;
+    line-height: 1em;
+}
+
+.cardname-input-container button {
+    height: 46px;
+    width: 60px;
+    line-height: 1em;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #FFE164;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+    vertical-align: middle;
+    transition: all 0.3s;
+}
+
+.submit-icon{
+    vertical-align: middle;
+}
+
+.cardname-input-container button:hover,
+.cardname-input-container button:focus {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.cardname-dropdown {
+    max-height: 150px;
+    max-width: 500px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.cardname-dropdown-option {
+    padding: 8px 16px;
+    font-size: 1.4em;
+    overflow-x: hidden;
+    cursor: pointer;
+    text-align: left;
+
+    &:hover {
+        background-color: black;
+        color: #FFE164;
+    }
+}
+
+.cardname-dropdown::-webkit-scrollbar {
+    width: 14px;
+}
+
+.cardname-dropdown::-webkit-scrollbar-track {
+    background: black;
+}
+
+.cardname-dropdown::-webkit-scrollbar-thumb {
+    background: #FBDFB2;
+}
+
+.cardname-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #FFE164;
+}
+
+.cardname-dropdown-option.no-results-found {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.card-and-infos {
+    display: flex;
+    margin-top: 4vh;
+}
+
+.game-infos {
+    width: 15vw;
+    min-width: 200px;
+    max-width: 350px;
+}
+
+@media (max-width: 768px) {
+    .card-and-infos {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2vh;
+    }
+
+    .game-infos {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+.card-image-container {
+    width: 300px;
+    height: 0;
+    padding-top: 135.47%; /* Aspect ratio (517 / 375 * 100%) */
+    position: relative;
+}
+
+.card-to-guess {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.footer {
+    padding-top: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FBDFB2;
+    font-size: 0.85em;
+    margin-top: auto;
+}
+
+.footer p {
+    padding: 1vh;
+}

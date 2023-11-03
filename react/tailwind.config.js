@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      belwe: ['Belwe', 'sans-serif']
+    }
   },
   plugins: [],
 }
