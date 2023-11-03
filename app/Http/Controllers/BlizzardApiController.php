@@ -12,7 +12,6 @@ class BlizzardApiController extends Controller
     public function getNewToken()
     {
         $client = new Client();
-
         try {
             $response = $client->post('https://oauth.battle.net/token', [
                 'auth' => [
@@ -110,6 +109,40 @@ class BlizzardApiController extends Controller
             return ApiResponse::success(null, 'All Hearthstone sets stored in json successfully');
         } catch (\Exception $e) {
             return ApiResponse::error('Failed to store Hearthstone sets');
+        }
+    }
+
+    public function getAllSetGroups()
+    {
+        set_time_limit(60);
+        $client = new Client();
+        $accessToken = new AccessToken();
+        $blizzardToken = $accessToken->getBlizzardToken()['access_token'];
+        try {
+            $response = $client->get('https://us.api.blizzard.com/hearthstone/metadata/setGroups?locale=en_US', [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $blizzardToken,
+                ],
+                'verify' => storage_path('app/cacert.pem'),
+            ]);
+
+            $data = json_decode($response->getBody(), true);
+
+            return ApiResponse::success($data, 'All Hearthstone set groups retrieved successfully');
+        } catch (\Exception $e) {
+            return ApiResponse::error('Failed to retrieve Hearthstone set groups');
+        }
+    }
+
+    public function storeAllSetGroupsInJson()
+    {
+        try {
+            $sets = $this->getAllSetGroups();
+            $filePath = storage_path('app/hearthstone_set_groups.json');
+            file_put_contents($filePath, json_encode($sets, JSON_PRETTY_PRINT));
+            return ApiResponse::success(null, 'All Hearthstone set groups stored in json successfully');
+        } catch (\Exception $e) {
+            return ApiResponse::error('Failed to store Hearthstone set groups');
         }
     }
 }

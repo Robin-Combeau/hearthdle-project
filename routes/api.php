@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SetController;
+use App\Http\Controllers\SetGroupController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CardController;
@@ -39,8 +40,8 @@ Route::prefix('blizzard')->group(function () {
 // Cards
 Route::resource('card', CardController::class);
 Route::get('/getCardImageWithoutName/{id}', [CardController::class, 'getCardImageWithoutName']);
-Route::get('/getRandomCard' , [CardController::class, 'getRandomCard']);
-Route::get('/getAllCardNames' , [CardController::class, 'getAllCardNames']);
+Route::get('/getRandomCard' , [Card::class, 'getRandomCard']);
+Route::get('/getAllCardNames' , [Card::class, 'getAllCardNames']);
 
 
 
@@ -53,3 +54,9 @@ Route::get('/blizzard/cards/updateAll', [CardController::class, 'updateAllCards'
 Route::get('/blizzard/sets/getAll', [BlizzardApiController::class, 'getAllSets']);
 Route::get('/blizzard/sets/storeAllInJson', [BlizzardApiController::class, 'storeAllSetsInJson']);
 Route::get('/blizzard/sets/updateAll', [SetController::class, 'updateAllSets']);
+Route::get('/blizzard/setGroups/getAll', [BlizzardApiController::class, 'getAllSetGroups']);
+Route::get('/blizzard/setGroups/storeAllInJson', [BlizzardApiController::class, 'storeAllSetGroupsInJson']);
+Route::get('/blizzard/setGroups/updateAll', [SetGroupController::class, 'updateAllSetGroups']);
+
+
+Route::get('/card/standard/get', [Card::class, 'getStandardCard']);

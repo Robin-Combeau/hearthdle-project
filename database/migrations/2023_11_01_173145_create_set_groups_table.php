@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('set_groups', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
+            $table->integer('year')->default(0);
+            $table->text('cardSets');
+            $table->string('name');
+            $table->boolean('standard')->default(false);
+            $table->string('icon')->default('');
             $table->timestamps();
         });
     }

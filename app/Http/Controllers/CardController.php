@@ -175,22 +175,4 @@ class CardController extends Controller
         }
         return 'Card not found';
     }
-
-    public static function getCard($id)
-    {
-        $card = Card::findByCardId($id);
-        return $card;
-    }
-
-    public static function getRandomCard()
-    {
-        $card = Card::select('*')->inRandomOrder()->get()->first();
-        return $card;
-    }
-
-    public static function getAllCardNames()
-    {
-        $cardNames = Card::select('name')->get();
-        return $cardNames;
-    }
 }

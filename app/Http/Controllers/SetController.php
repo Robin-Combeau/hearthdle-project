@@ -29,39 +29,34 @@ class SetController extends Controller
         //
     }
 
-    public function updateAllCards()
+    public function updateAllSets()
     {
-        $jsonFilePath = storage_path('app/hearthstone_set_groups.json');
+        $jsonFilePath = storage_path('app/hearthstone_sets.json');
         $jsonData = File::get($jsonFilePath);
         $jsonData = json_decode($jsonData, true);
 
         try {
-            foreach ($jsonData['original']['data'] as $jsonSetGroup) {
+            foreach ($jsonData['original']['data'] as $jsonSet) {
                 // Mapping
                 $dataToStore = [];
                 foreach ($this->propertyMapping as $jsonKey => $dbField) {
-                    if (isset($jsonSetGroup[$jsonKey])) {
-                        if ($dbField === 'cardSets') {
-                            // Convert array to JSON string
-                            $dataToStore[$dbField] = json_encode($jsonSetGroup[$jsonKey]);
-                        } else {
-                            $dataToStore[$dbField] = $jsonSetGroup[$jsonKey];
-                        }
+                    if (isset($jsonSet[$jsonKey])) {
+                        $dataToStore[$dbField] = $jsonSet[$jsonKey];
                     }
                 }
 
                 // Duplicate ?
-                $existingSetGroup = SetGroup::where('cardId', $dataToStore['cardId'])->first();
+                $existingSet = Set::where('setId', $dataToStore['setId'])->first();
 
-                if ($existingSetGroup) {
-                    $existingSetGroup->update($dataToStore);
+                if ($existingSet) {
+                    $existingSet->update($dataToStore);
                 } else {
-                    SetGroup::create($dataToStore);
+                    Set::create($dataToStore);
                 }
             }
-            return ApiResponse::success(null, 'All set groups have been updated in database');
+            return ApiResponse::success(null, 'All sets have been updated in database');
         } catch (\Exception $e) {
-            return ApiResponse::error('Failed to update all set groups');
+            return ApiResponse::error('Failed to update all sets');
         }
     }
 

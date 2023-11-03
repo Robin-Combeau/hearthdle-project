@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Responses\ApiResponse;
+use App\Models\Set;
 use App\Models\SetGroup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SetGroupController extends Controller
 {
@@ -28,33 +31,37 @@ class SetGroupController extends Controller
         //
     }
 
-    public function updateAllSets()
+    public function updateAllSetGroups()
     {
-        $jsonFilePath = storage_path('app/hearthstone_sets.json');
+        $jsonFilePath = storage_path('app/hearthstone_set_groups.json');
         $jsonData = File::get($jsonFilePath);
         $jsonData = json_decode($jsonData, true);
         try {
-            foreach ($jsonData['original']['data'] as $jsonSet) {
+            foreach ($jsonData['original']['data'] as $jsonSetGroup) {
 
                 // Mapping
                 $dataToStore = [];
                 foreach ($this->propertyMapping as $jsonKey => $dbField) {
-                    if (isset($jsonSet[$jsonKey])) {
-                        $dataToStore[$dbField] = $jsonSet[$jsonKey];
+                    if (isset($jsonSetGroup[$jsonKey])) {
+                        if ($dbField === 'cardSets') {
+                            // Convert array to JSON string
+                            $dataToStore[$dbField] = json_encode($jsonSetGroup[$jsonKey]);
+                        } else {
+                            $dataToStore[$dbField] = $jsonSetGroup[$jsonKey];
+                        }
                     }
                 }
                 // Duplicate ?
-                $existingSet = Set::where('setId', $dataToStore['setId'])->first();
-
-                if ($existingSet) {
-                    $existingSet->update($dataToStore);
+                $existingSetGroup = SetGroup::where('slug', $dataToStore['slug'])->first();
+                if ($existingSetGroup) {
+                    $existingSetGroup->update($dataToStore);
                 } else {
-                    Set::create($dataToStore);
+                    SetGroup::create($dataToStore);
                 }
             }
-            return ApiResponse::success(null, 'All sets have been updated in database');
+            return ApiResponse::success(null, 'All set groups have been updated in database');
         } catch (\Exception $e) {
-            return ApiResponse::error('Failed to store all sets');
+            return $e;
         }
     }
 }

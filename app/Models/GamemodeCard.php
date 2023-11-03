@@ -10,19 +10,25 @@ class GamemodeCard extends Model
 {
     use HasFactory;
 
-    protected $table = 'gamemode_daily';
+    protected $table = 'gamemode_card';
     
     protected $fillable = [
+        'gamemode',
         'cardId'
     ];
 
     /**
-     * Sets a new daily card for Wild
+     * Sets a new daily card
      * Can't return a daily card that has been there in the last month
      */
-    public static function storeNewCardForWild(string $gamemode){
-        $randomCard = Card::inRandomOrder()->first();
-        $latestDailyCard = GamemodeCard::where('card_id',$randomCard->cardId)
+    public static function storeNewCard(string $gamemode){
+        switch ($gamemode) {
+            case 'standard':
+                $randomCard = Card::getStandardCard();
+        }
+
+        $randomStandardCard = Card::getStandardCard();
+        $latestStandardCard = GamemodeCard::where('card_id', $randomStandardCard->cardId)
                         ->where('gamemode', $gamemode)
                         ->orderBy('created_at')
                         ->first();
