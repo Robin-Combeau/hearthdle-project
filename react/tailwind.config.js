@@ -8,8 +8,15 @@ export default {
     extend: {},
     fontFamily: {
       belwe: ['Belwe', 'sans-serif']
-    }
+    },
+    colors: {
+      'yellow-gold': '#FFE164',
+      'beige': '#FBDFB2',
+      'lighter-black': '#18160A',
+      'darker-beige': '#C9B38E'
+    },
   },
   plugins: [],
+  
 }
 

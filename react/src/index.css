@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* Fonts */
-@layer base{
+@layer base {
     @font-face {
         font-family: Belwe;
         src: url('fonts/Belwe/Belwe Bold.ttf');
@@ -29,12 +29,12 @@
     html {
         font-family: ITCFranklinGothicMedium;
     }
+
     .belwe {
         font-family: Belwe;
     }
 }
 
-    
 @font-face {
     font-family: ITCFranklinGothicMedium;
     src: url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.ttf');
@@ -43,4 +43,51 @@
         url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.woff') format('woff'),
         url('fonts/ITC Franklin Gothic/ITC Franklin Gothic Medium.svg#svgFontName') format('svg');
     font-display: swap;
+}
+
+.main-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: -10;
+}
+
+.text-outline-thin::before {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: 6px black;
+    z-index: -1;
+}
+
+.text-outline-small::before {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: 8px black;
+    z-index: -1;
+}
+
+.text-outline-medium::before {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: 10px black;
+    z-index: -1;
+}
+
+.text-outline-large::before {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: 14px black;
+    z-index: -1;
+}
+
+.bg-black{
+    background-color:black;
+}
+
+.bg-beige{
+    background-color:#FBDFB2;
 }

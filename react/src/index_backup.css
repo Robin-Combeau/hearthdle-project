@@ -154,7 +154,7 @@ button {
 
 .title:before {
     content: attr(data-text);
-    position: absolute;
+    position: absolute; 
     color: #FFE164;
     -webkit-text-stroke: 14px black;
     font-size: 3.2rem;

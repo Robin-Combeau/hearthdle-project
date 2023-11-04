@@ -5,9 +5,8 @@ import MainRoutes from './MainRoutes';
 
 export default function App() {
   return (
-    <div className="fixed bg-fixed block top-0 left-0 w-full h-screen z-[-10] bg-cover bg-no-repeat bg-left relative"
-         style={{ backgroundImage: 'url("/images/background/UnitedinStormwind_007.webp")' }}>
-        <MainRoutes />
+    <div className="relative bg-cover bg-center h-screen z-0 main-background" style={{ backgroundImage: 'url("/images/background/UnitedinStormwind_007.webp")' }}>
+      <MainRoutes />
     </div>
   );
 }
