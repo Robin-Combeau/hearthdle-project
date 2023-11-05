@@ -16,7 +16,7 @@ export default {
     colors: {
       'yellow-gold': '#FFE164',
       'beige': '#FBDFB2',
-      'lighter-black': '#18160A',
+      'lighter-black': '#121109',
       'darker-beige': '#C9B38E'
     },
   },

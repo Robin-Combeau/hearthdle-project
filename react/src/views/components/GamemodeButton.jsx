@@ -8,8 +8,8 @@ export default function GamemodeButton({ title, img, link, text }) {
             <div className="flex items-center justify-center mt-3">
                 <img src={img} />
             </div>
-            <h3 className="relative belwe text-3xl tracking-normal text-yellow-gold m-2 mt-[-28px] text-outline-thin z-10" data-text={title}>{title}</h3>
-            <p className="text-xl mx-8 my-2 mt-4">{text}</p>
+            <h3 className="relative belwe text-4xl tracking-normal text-yellow-gold m-2 mt-[-28px] text-outline-small z-10 " data-text={title}>{title}</h3>
+            <p className="text-xl mx-8 my-4 leading-6">{text}</p>
         </button>
     )
 }

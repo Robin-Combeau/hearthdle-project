@@ -84,10 +84,31 @@
     z-index: -1;
 }
 
-.bg-black{
-    background-color:black;
+.bg-black {
+    background-color: black;
 }
 
-.bg-beige{
-    background-color:#FBDFB2;
+.bg-beige {
+    background-color: #FBDFB2;
+}
+
+.cardname-dropdown::-webkit-scrollbar {
+    width: 14px;
+}
+
+.cardname-dropdown::-webkit-scrollbar-track {
+    background: #18160A;
+}
+
+.cardname-dropdown::-webkit-scrollbar-thumb {
+    background: #FBDFB2;
+}
+
+.cardname-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #ccb590;
+}
+
+.no-results-found {
+    cursor: not-allowed;
+    pointer-events: none;
 }

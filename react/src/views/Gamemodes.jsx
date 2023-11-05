@@ -16,7 +16,7 @@ export default function Gamemodes() {
                 <GamemodeButton title="Wild" img="/images/logos/gamemodes/wild.webp" link="/gamemode/wild" text="All cards except Classic format cards." />
             </div>
             <div className="flex flex-wrap justify-center">
-                <GamemodeButton title="Classic" img="/images/logos/gamemodes/classic.webp" link="/gamemode/classic" text="Only cards from the original release." />
+                <GamemodeButton title="Classic" img="/images/logos/gamemodes/classic.webp" link="/gamemode/classic" text="Only cards from year 1 and 2 of Hearthstone." />
             </div>
             <Footer />
         </div>
