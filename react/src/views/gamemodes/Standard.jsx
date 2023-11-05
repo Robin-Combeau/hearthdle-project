@@ -1,6 +1,6 @@
 import React from 'react';
-import GameMode from './Gamemode';
+import GamemodePage from '../components/GamemodePage';
 
 export default function Standard() {
-  return <GameMode gamemode="Standard" />;
+  return <GamemodePage gamemode="Standard" />;
 }

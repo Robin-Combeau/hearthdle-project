@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import Index from './views/Index';
 import Gallery from './views/Gallery';
 import NotFound from './views/NotFound';
-import Infinite from './views/gamemodes/Infinite';
 import Standard from './views/gamemodes/Standard';
 import About from './views/About';
 import Faq from './views/Faq';

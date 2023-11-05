@@ -5,11 +5,8 @@ import MainRoutes from './MainRoutes';
 
 export default function App() {
   return (
-    <>
-      <div className="background-container">
-        <div className="background-filter"></div>
-      </div>
+    <div className="relative min-h-screen bg-cover bg-center z-0 main-background-filter" style={{ backgroundImage: 'url("/images/background/UnitedinStormwind_007.webp")' }}>
       <MainRoutes />
-    </>
+    </div>
   );
 }

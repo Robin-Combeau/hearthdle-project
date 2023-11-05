@@ -1,6 +1,6 @@
 import React from 'react';
-import GameMode from './Gamemode';
+import GamemodePage from '../components/GamemodePage';
 
 export default function Wild() {
-  return <GameMode gamemode="Wild" />;
+  return <GamemodePage gamemode="Wild" />;
 }
