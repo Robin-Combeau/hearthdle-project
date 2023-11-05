@@ -45,7 +45,7 @@
     font-display: swap;
 }
 
-.main-background::before {
+.main-background-filter::before {
     content: '';
     position: absolute;
     top: 0;

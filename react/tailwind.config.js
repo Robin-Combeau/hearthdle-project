@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        'black-85': 'rgba(0, 0, 0, 0.85)',
+      },
+    },
     fontFamily: {
       belwe: ['Belwe', 'sans-serif']
     },

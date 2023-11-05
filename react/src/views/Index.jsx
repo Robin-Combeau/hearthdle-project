@@ -15,17 +15,17 @@ export default function Index() {
                 Guess Hearthstone cards
             </h2>
             <div className="flex flex-col items-center md:mt-24 mt-12">
-                <Button label="Play" className="belwe bg-black text-yellow-gold text-4xl border-4 border-yellow-gold rounded-xl py-6 px-32 shadow-xl md:m-4 m-2
-                transition duration-300 ease-in-out transform hover:scale-105 hover:border-beige hover:text-beige hover:bg-lighter-black" to="/gamemodes" />
+                <Button label="Play" className="belwe bg-black text-yellow-gold text-4xl border-4 border-yellow-gold rounded-xl py-6 px-36 shadow-xl md:m-4 m-2
+                transition ease-in-out transform hover:scale-105 hover:border-beige hover:text-beige hover:bg-lighter-black" to="/gamemodes" />
                 <div>
-                    <Button label="About" className="belwe bg-beige text-black text-3xl rounded-lg py-2 px-8 shadow-xl mt-4 mr-6 w-36
+                    <Button label="About" className="belwe bg-beige text-black text-3xl rounded-lg py-2 px-8 shadow-xl mt-4 mr-6 w-40
                     transition duration-300 ease-in-out transform hover:scale-105 hover:bg-darker-beige" to="/about" />
-                    <Button label="FAQ" className="belwe bg-beige text-black text-3xl rounded-lg py-2 px-8 shadow-xl mt-4 ml-6 w-36
+                    <Button label="FAQ" className="belwe bg-beige text-black text-3xl rounded-lg py-2 px-8 shadow-xl mt-4 ml-6 w-40
                     transition duration-300 ease-in-out transform hover:scale-105 hover:bg-darker-beige" to="/faq" />
                 </div>
             </div>
+            <Footer />
         </div>
-
     );
 }
 
