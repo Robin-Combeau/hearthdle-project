@@ -7,8 +7,11 @@ import TentativeCounter from '../components/TentativeCounter';
 import PageMainTitle from '../components/PageMainTitle';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import GamemodeButton from './GamemodeButton';
 
 function GamemodePage({ gamemode }) {
+    const gamemodeList = ['Standard', 'Wild', 'Classic']
+
     const [card, setCard] = useState({});
     const [cardImage, setCardImage] = useState('');
     const [allCardNames, setAllCardNames] = useState([]);
@@ -74,6 +77,7 @@ function GamemodePage({ gamemode }) {
 
     useEffect(() => {
         if (rightGuess) {
+            setWrongGuess(false);
             handleRightGuess();
         }
     }, [rightGuess]);
@@ -86,7 +90,7 @@ function GamemodePage({ gamemode }) {
     }, [wrongGuess]);
 
     const handleRightGuess = () => {
-        console.log("lol");
+        // TO DO - store the data from the user
     };
 
     const handleWrongGuess = () => {
@@ -128,6 +132,30 @@ function GamemodePage({ gamemode }) {
                 tentatives={tentatives}
                 setTentatives={setTentatives}
             />
+
+            {rightGuess && (
+                <div className="w-auto bg-black-85 rounded-lg text-beige text-center text-xl my-2">
+                    <h3 className="py-1 belwe text-yellow-gold text-3xl tracking-normal mt-2 mx-8 text-outline-thin" data-text={'Well done !'}>Well done !</h3>
+                    <p className="py-4 px-8 leading-6">Next {gamemode} card in : XX:XX:XX</p>
+                </div>
+            )}
+
+            {rightGuess && gamemodeList.includes(gamemode) && (
+                <div className="w-auto bg-black-85 rounded-lg text-beige text-center text-xl my-2">
+                    <h3 className="py-1 belwe text-yellow-gold text-3xl tracking-normal mt-2 mx-8 text-outline-thin" data-text={'Try out another mode !'} >Try out another mode ?</h3>
+                    {gamemodeList.map((otherGamemode) => (
+                        otherGamemode !== gamemode && (
+                            <GamemodeButton
+                                key={otherGamemode}
+                                title={otherGamemode}
+                                img={`/images/logos/gamemodes/${otherGamemode.toLowerCase()}.webp`}
+                                link={`/gamemode/${otherGamemode.toLowerCase()}`}
+                                size="small"
+                            />
+                        )
+                    ))}
+                </div>
+            )}
             <Footer />
         </div>
     );

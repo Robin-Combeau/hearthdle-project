@@ -44,9 +44,11 @@ export default function CardNameInput({
     };
 
     const submitCardName = () => {
+        setTentatives((prevTentatives) => prevTentatives + 1);
         if (card.name.toLowerCase() === selectedCardName.toLowerCase()) {
             setWrongGuess(false);
             onRightGuess(true);
+            setRightGuess(true);
         }
         else {
             setTentatives((prevTentatives) => prevTentatives + 1);
@@ -59,21 +61,23 @@ export default function CardNameInput({
     return (
         <>
             <div className="flex items-center justify-center text-center mt-12">
-                <div className="w-96 flex m-0">
-                    <input
-                        className="w-full h-12 belwe text-2xl px-3 text-yellow-gold bg-black text-left text-xl focus:outline-none"
-                        type="text"
-                        value={inputValue}
-                        placeholder="Enter a card name"
-                        onChange={handleInputChange}
-                    />
-                    <button
-                        className="w-16 h-12 text-1xl bg-black text-xl"
-                        onClick={submitCardName}
-                    >
-                        <img className="submit-icon" src="/icons/chevron-right.svg" alt="Submit" />
-                    </button>
-                </div>
+                {!rightGuess && (
+                    <div className="w-96 flex m-0">
+                        <input
+                            className="w-full h-12 belwe text-2xl px-3 text-yellow-gold bg-black text-left text-xl focus:outline-none"
+                            type="text"
+                            value={inputValue}
+                            placeholder="Enter a card name"
+                            onChange={handleInputChange}
+                        />
+                        <button
+                            className="w-16 h-12 text-1xl bg-black text-xl"
+                            onClick={submitCardName}
+                        >
+                            <img src="/icons/chevron-right.svg" alt="Submit" />
+                        </button>
+                    </div>
+                )}
             </div>
             {showDropdown && inputValue && (
                 <div className="w-96 max-h-40 overflow-y-auto cardname-dropdown">
@@ -88,7 +92,7 @@ export default function CardNameInput({
                     ))}
                 </div>
             )}
-            {wrongGuess && <div className="text-lg text-beige m-1">Wrong guess, try again !</div>}
+            {wrongGuess && <div className="text-lg text-beige m-1">Wrong guess, try again!</div>}
         </>
     );
 }

@@ -6,7 +6,7 @@ import Footer from './components/Footer'
 
 export default function Patchnotes() {
   return (
-    <div className="page">
+    <div className="min-h-screen flex flex-col items-center">
         <PageMainTitle />
         <PageTitle text="Patchnotes" />
 
